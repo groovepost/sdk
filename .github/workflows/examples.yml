@@ -1,0 +1,31 @@
+name: Authenticated registry examples
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  examples:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        example: [rest-client, countdown-screen, themed-controls]
+    defaults:
+      run:
+        working-directory: examples/${{ matrix.example }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Configure package-read authentication
+        run: |
+          test -n "$PACKAGE_READ_TOKEN"
+          npm config set //npm.pkg.github.com/:_authToken "$PACKAGE_READ_TOKEN" --location=user
+        env:
+          PACKAGE_READ_TOKEN: ${{ secrets.PACKAGE_READ_TOKEN }}
+      - run: npm ci
+      - run: npm run typecheck --if-present
+      - run: npm test --if-present
+      - run: npm run build --if-present
+      - run: npm run package --if-present

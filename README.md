@@ -1,31 +1,34 @@
 # Groovepost SDK
 
-Public documentation, integration examples, and release guidance for the Groovepost SDK.
+Developer documentation and independent examples for the Groovepost platform.
+SDK implementation is maintained privately. This repository contains documentation,
+example application code and release metadata; it is not an implementation mirror.
 
-The SDK implementation is maintained in the private Groovepost platform monorepo. This repository contains developer-facing documentation and examples; it does not contain the SDK implementation.
+## Start here
 
-## Status
+- [Getting started](docs/getting-started.md): registry access, installation and first API call.
+- [Package inventory](docs/packages.md): verified published versions and responsibilities.
+- [Component architecture](docs/architecture.md): shared components and tenant customization.
+- [Examples](examples/README.md): REST client, hosted screen, and themed React controls.
+- [Release process](docs/releases.md): versions, compatibility and registry limitations.
+- [Troubleshooting](docs/troubleshooting.md) and [support](CONTRIBUTING.md).
 
-This repository is the initial documentation home. Package names, installation commands, supported versions, and runnable examples will be added after the existing platform packages and release setup have been verified.
+## Documentation development
 
-## Component architecture
+Use Node 22 or newer. Run `npm ci`, `npm test`, then `npm run docs:dev`.
+`npm run docs:build` creates the static documentation site. Documentation build
+requires no private platform checkout or package credentials. Examples have their
+own dependencies; see their READMEs for registry setup and verification commands.
 
-The intended component layers are:
+## Current distribution status
 
-1. Shopify commerce primitives provide commerce behavior and data integration.
-2. Groovepost components compose those primitives into reusable experiences with shared behavior and defaults.
-3. Tenant applications, such as Digger's Union, customize Groovepost components through theme tokens, props, slots, and component overrides.
-
-Prefer composition and configuration over class inheritance. Tenants should reuse the default components and replace only the parts that need different presentation or behavior.
-
-## Release approach
-
-- Build, test, version, and publish SDK packages from the private platform monorepo.
-- Publish built JavaScript and TypeScript declarations, excluding original implementation source and source maps. Distributed JavaScript remains inspectable.
-- Maintain public usage guides, examples, migration guides, and changelogs here alongside package releases.
-- Test public examples against published package versions without private workspace dependencies.
-- Keep documentation aligned with released package versions and distinguish prerelease guidance from stable releases.
+SDK packages are currently distributed through GitHub Packages, which requires
+package-read authentication. Token-free npmjs distribution is not yet available.
+See the inventory for verified versions; newer platform APIs may be unreleased.
+The documentation v1 milestone does not mean the SDK has reached version 1.0.
 
 ## Feedback
 
-Use this repository's issues to report documentation problems and SDK integration issues. Never include credentials, private tenant data, or private implementation code.
+Use issues for reproducible SDK integration problems and documentation corrections.
+Never post credentials, private tenant data or implementation code. See SECURITY.md
+for private security reporting instructions.
