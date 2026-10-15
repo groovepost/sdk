@@ -9,3 +9,9 @@
 - Add documentation CI, opt-in authenticated example smoke and manual Pages deployment.
 
 This entry does not announce an SDK 1.0 release or npmjs availability.
+
+## SDK package publication
+
+- Update verified GitHub Packages inventory and independent examples to the new releases.
+- Document released widget/layout APIs and keep hosted Shopify acceptance separate.
+- Deploy documentation automatically after main changes.

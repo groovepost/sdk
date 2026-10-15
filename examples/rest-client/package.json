@@ -7,6 +7,6 @@
     "test": "node --test *.test.mjs"
   },
   "dependencies": {
-    "@groovepost/app-sdk": "0.4.0"
+    "@groovepost/app-sdk": "0.4.2"
   }
 }

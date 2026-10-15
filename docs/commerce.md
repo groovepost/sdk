@@ -1,8 +1,8 @@
 # Commerce and Shopify
 
-The current platform source contains tenant/environment-scoped product and cart
-operations and hosted bridge operations for commerce. Treat these as candidate
-APIs until their package versions and hosted tenant configuration are verified.
+SDK 0.4.2 contains tenant/environment-scoped product and cart
+operations and hosted bridge operations for commerce. Commerce requires a configured Shopify tenant integration; package publication alone
+does not demonstrate live Shopify acceptance.
 
 The source contract exposes product listing/detail, cart reads, and cart line
 add/update/remove operations with typed Product and Cart responses. Checkout uses
