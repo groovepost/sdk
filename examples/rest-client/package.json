@@ -1,0 +1,12 @@
+{
+  "name": "groovepost-rest-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "node --test *.test.mjs"
+  },
+  "dependencies": {
+    "@groovepost/app-sdk": "0.4.0"
+  }
+}
