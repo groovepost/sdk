@@ -3,7 +3,7 @@
 Install exact verified versions through the configured GitHub registry:
 
 ```sh
-npm install --save-dev --save-exact @groovepost/cli@0.6.1
+npm install --save-dev --save-exact @groovepost/cli@0.6.4
 ```
 
 Use project-local scripts or `npx --no-install groovepost` so an unexpected registry
@@ -19,7 +19,7 @@ additional shared publishing packages.
 
 ## MCP
 
-`@groovepost/mcp@0.5.0` provides the `groovepost-mcp` stdio binary and explicitly
+`@groovepost/mcp@0.5.2` provides the `groovepost-mcp` stdio binary and explicitly
 registered REST-backed tools. Configure the same API URL, environment and tenant,
 and an ordinary administrator or customer token for the intended scope. Stdout
 is reserved for MCP protocol output.

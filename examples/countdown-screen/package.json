@@ -9,10 +9,10 @@
     "package": "groovepost apps pack manifest.json dist/countdown-1.0.0.tar.gz"
   },
   "dependencies": {
-    "@groovepost/app-sdk": "0.4.0"
+    "@groovepost/app-sdk": "0.4.2"
   },
   "devDependencies": {
-    "@groovepost/cli": "0.6.1",
+    "@groovepost/cli": "0.6.4",
     "typescript": "7.0.2"
   }
 }

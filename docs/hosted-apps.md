@@ -32,9 +32,8 @@ Scanning and hosted startup checks must pass, followed by explicit administrator
 acceptance. Production promotes the exact validated development release rather
 than refetching or rebuilding the package. Local packing is not hosted acceptance.
 
-## Candidate widget APIs
+## Widgets and layouts
 
-Current platform source adds `defineWidget`, built-in Feed/Page/Shop widgets,
-master-detail app layouts and widget navigation. These are candidate capabilities;
-verify the released package declarations and hosted platform before using them.
-The examples here use the verified screen contract rather than unreleased symbols.
+SDK 0.4.2 and the corresponding platform release support `defineWidget`, built-in Feed/Page/Shop widgets,
+master-detail app layouts and widget navigation. Use the corresponding released package declarations and configured hosted platform.
+The countdown example demonstrates the simpler screen contract.

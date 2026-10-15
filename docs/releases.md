@@ -30,8 +30,8 @@ compatibility and package versions are separate contracts. Do not infer stabilit
 
 The public CI checks docs and example metadata without private secrets. Registry
 example smoke is explicitly dispatched with a package-read secret. Fork PRs never
-receive that secret. The Pages workflow is manual and needs GitHub Pages set to
-GitHub Actions; docs are readable directly on GitHub without enabling hosting.
+receive that secret. The Pages workflow deploys main automatically and also supports manual dispatch.
+The public site is https://groovepost.github.io/sdk/.
 
 ## npmjs migration
 
