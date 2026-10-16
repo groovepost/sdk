@@ -11,7 +11,12 @@
 | API redirects or HTML response                 | Explicit API URL must end in /api/v1 and point at the intended deployment                 |
 | Tenant operation denied                        | Tenant/environment, customer/admin realm, manifest capabilities and REST permissions      |
 | Entity write returns 409                       | Reload/reconcile current version before retrying                                          |
-| Local archive builds but production refuses it | Validate the exact artifact in development and record acceptance first                    |
+| Repository will not connect | Confirm the operator configured the GitHub App; install it only on the selected repository |
+| Build dispatch fails | Commit groovepost.yml to the default and selected branches; confirm installation Actions access |
+| Dependencies fail in CI | Configure PACKAGE_READ_TOKEN and both GitHub Packages scopes; commit the lockfile |
+| App differs from current Git source | Compare the full live SHA with the selected branch, then inspect the latest build logs |
+| Production merge did not deploy | Production builds are manual; explicitly start a build when ready |
+| Cleanup failed | Retry output cleanup from build history; current serving output stays protected |
 
 When opening an issue include OS, Node/package versions, sanitized configuration,
 reproduction steps, and the error code/status. Omit tokens, customer data, private

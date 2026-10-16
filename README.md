@@ -32,3 +32,5 @@ The documentation v1 milestone does not mean the SDK has reached version 1.0.
 Use issues for reproducible SDK integration problems and documentation corrections.
 Never post credentials, private tenant data or implementation code. See SECURITY.md
 for private security reporting instructions.
+
+See [repository setup and builds](docs/repository-builds.md) for the repository-based deployment workflow and its current publication/acceptance status.
