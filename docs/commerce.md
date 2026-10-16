@@ -1,6 +1,6 @@
 # Commerce and Shopify
 
-SDK 0.4.2 contains tenant/environment-scoped product and cart
+SDK 0.4.5 contains tenant/environment-scoped product and cart
 operations and hosted bridge operations for commerce. Commerce requires a configured Shopify tenant integration; package publication alone
 does not demonstrate live Shopify acceptance.
 

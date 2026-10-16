@@ -1,0 +1,65 @@
+name: GroovePost app deployment
+run-name: GroovePost ${{ inputs.build_id }}
+on:
+  workflow_dispatch:
+    inputs:
+      build_id:
+        required: true
+        type: string
+      source_sha:
+        required: true
+        type: string
+      environment:
+        required: true
+        type: choice
+        options: [development, production]
+      api_url:
+        required: true
+        type: string
+permissions:
+  contents: read
+  packages: read
+  id-token: write
+concurrency:
+  group: groovepost-${{ inputs.environment }}
+  cancel-in-progress: false
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      GROOVEPOST_BUILD_API_URL: ${{ inputs.api_url }}
+      GROOVEPOST_BUILD_ID: ${{ inputs.build_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install locked dependencies
+        env:
+          PACKAGE_READ_TOKEN: ${{ secrets.PACKAGE_READ_TOKEN }}
+        run: |
+          test -n "$PACKAGE_READ_TOKEN" || { echo 'Configure PACKAGE_READ_TOKEN for SDK dependency access'; exit 1; }
+          npm config set //npm.pkg.github.com/:_authToken "$PACKAGE_READ_TOKEN" --location=user
+          npm ci
+      - name: Record build start
+        run: npx --no-install groovepost builds report running
+      - name: Check app
+        run: npm run typecheck --if-present && npm test --if-present
+      - name: Browser checks
+        run: |
+          if node -e 'process.exit(require("./package.json").scripts?.["test:browser"] ? 0 : 1)'; then
+            npx --no-install playwright install --with-deps chromium
+            npm run test:browser
+          fi
+      - name: Build this commit
+        run: npm run build
+      - name: Deploy this build
+        run: npx --no-install groovepost builds deploy dist/app.tar.gz app.config.json
+      - name: Record failed build
+        if: failure() || cancelled()
+        run: npx --no-install groovepost builds report ${{ cancelled() && 'cancelled' || 'failed' }}

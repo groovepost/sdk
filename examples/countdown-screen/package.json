@@ -6,13 +6,13 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "node --test *.test.mjs",
-    "package": "groovepost apps pack manifest.json dist/countdown-1.0.0.tar.gz"
+    "build": "groovepost apps build manifest.json dist/app.tar.gz"
   },
   "dependencies": {
-    "@groovepost/app-sdk": "0.4.2"
+    "@groovepost/app-sdk": "0.4.5"
   },
   "devDependencies": {
-    "@groovepost/cli": "0.6.4",
+    "@groovepost/cli": "0.6.7",
     "typescript": "7.0.2"
   }
 }

@@ -37,7 +37,7 @@ test("local Markdown links resolve to committed documentation", () => {
       const target = match[1].split("#")[0];
       if (!target || /^(https?:|mailto:)/.test(target)) continue;
       assert.ok(
-        existsSync(resolve(dirname(file), target)),
+        existsSync(resolve(dirname(file), target)) || (target.startsWith("/") && existsSync(resolve("docs/public",target.slice(1)))),
         `${file}: broken link ${target}`,
       );
     }

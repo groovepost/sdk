@@ -6,7 +6,7 @@ links or private source imports. See `examples/` in the repository for full file
 | Example          | Demonstrates                                                             | Run after npm ci                              |
 | ---------------- | ------------------------------------------------------------------------ | --------------------------------------------- |
 | rest-client      | Scoped SDK requests with a fixture fetch; optional live customer session | npm test; npm start                           |
-| countdown-screen | defineScreen, validated options, cleanup and frontend archive packaging  | npm run typecheck; npm test; npm run package  |
+| countdown-screen | defineWidget, validated options, cleanup and repository builds  | npm run typecheck; npm test; npm run build  |
 | themed-controls  | Shared Button/Field and a composed tenant wrapper                        | npm run typecheck; npm run build; npm run dev |
 
 Configure package authentication first. Offline fixture tests make no live writes.

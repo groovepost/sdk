@@ -30,7 +30,7 @@ alone does not prove packages are visible to every developer.
 ## Install a verified version
 
 ```sh
-npm install --save-exact @groovepost/app-sdk@0.4.2
+npm install --save-exact @groovepost/app-sdk@0.4.5
 ```
 
 See [the inventory](./packages.md) before selecting other packages. The SDK is

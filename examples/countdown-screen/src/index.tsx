@@ -1,5 +1,5 @@
-import { defineScreen } from "@groovepost/app-sdk";
-export const Countdown = defineScreen({
+import { defineWidget } from "@groovepost/app-sdk";
+export const Countdown = defineWidget({id:"countdown",routes:[{id:"root",path:"/"}],
   mount(element, context) {
     const heading = document.createElement("h1"),
       time = document.createElement("p");
