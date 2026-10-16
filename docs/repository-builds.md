@@ -1,6 +1,6 @@
 # Repository builds
 
-Status: SDK packages are published; hosted development acceptance is still pending. Do not treat this workflow as available to customers until that evidence is recorded.
+The development workflow was verified with an independent client app on 2026-10-16. Production and external integrations require their own acceptance.
 
 The connected GitHub repository owns app code, `manifest.json`, `app.config.json`, dependency pins and CI. GroovePost owns tenant settings, shared services, environment branch selection and the active deployment. Development builds automatically on a push to its assigned branch. Production builds only when an administrator selects **Build and deploy**. Merging production's branch does not publish it. There is no scheduler or cron job.
 
@@ -10,7 +10,7 @@ GroovePost receives the signed GitHub push webhook and dispatches the repository
 
 1. Create `main` and `develop`. Require pull requests and CI. Keep a lockfile and exact SDK/CLI pins; do not commit credentials. Use the registry access instructions in the public SDK guide.
 2. Run `groovepost apps init` for a new app, or download the [workflow template](/groovepost.yml) (also shipped as the CLI's `templates/groovepost.yml`) into `.github/workflows/groovepost.yml` for an existing app. Preserve your own tests and browser checks. This workflow uses `workflow_dispatch`, GitHub environments and short-lived OIDC identity; it has no production push trigger.
-3. Commit the workflow to the repository's default branch and the environment branches. GitHub requires workflow registration before it can be dispatched. This setup commit is not a GroovePost production deployment. Set up GitHub environments named `development` and `production`; restrict their deployment branches to their intended branch. `production` should require a reviewer as an additional repository policy.
+3. Commit the workflow to each environment branch you want GroovePost to build. The development setup does not require changing the production branch. Set up GitHub environments named `development` and `production`; restrict their deployment branches to their intended branch. `production` should require a reviewer as an additional repository policy.
 4. Provide GitHub's `PACKAGE_READ_TOKEN` secret with permission to read the SDK packages. This is dependency installation access, not a GroovePost administrator token. Repository workflow permissions are `contents: read`, `packages: read`, `id-token: write`.
 5. In the tenant's **App deployments**, connect the GitHub repository and install the operator's GitHub App on that repository only. Save the development branch and enable automatic builds. Configure the production environment separately, with automatic builds disabled. Environment hosts enforce their own boundary.
 6. Click **Build and deploy** for the initial development build, then test a push to `develop`. Check the full live commit and the GitHub Actions logs. Test the real hosted app before publishing production. A successful CI run alone does not establish acceptance of SMS, payments or other external integrations.
@@ -29,7 +29,7 @@ npm run dev
 npm run build
 ```
 
-The initializer creates `main`, then `develop`, with the workflow already present. Commit the generated dependency lockfile before connecting builds. For existing repositories, use `apps init` with `--adopt` to bind public tenant settings without replacing app code, copy the workflow, and commit `app.config.json`. Use your normal protected-branch pull request process to install the workflow on the default branch. Keep repository protections and required CI enabled.
+The initializer creates `main`, then `develop`, with the workflow already present. Commit the generated dependency lockfile before connecting builds. For existing repositories, use `apps init` with `--adopt` to bind public tenant settings without replacing app code, copy the workflow, and commit `app.config.json`. Use your normal protected-branch pull request process to install the workflow on the selected environment branch. Keep repository protections and required CI enabled.
 
 Local sign-in is for developer setup and settings sync. The deployed widget uses host context. Build CI uses short-lived GitHub identity; do not copy your local administrator token into a workflow.
 
@@ -64,4 +64,4 @@ The operator must make the App installable on your GitHub account or organizatio
 
 The GitHub App needs Contents read and Actions read/write plus Metadata read. It receives push and workflow-run webhooks. It does not write your source or administer your repository. CI uses an existing GitHub runner; no new build worker, scheduler, cron or polling service is required.
 
-The implementation is awaiting hosted acceptance. Package version metadata describes published SDK releases, not completed app deployment acceptance.
+Development verification covered repository installation, automatic push deployment of the exact commit, failed-build isolation, original app design, saved draft/photo recovery, and website/app navigation. Only one serving output remained after successful cleanup. Real SMS and authenticated submission were deferred. Package version metadata describes published SDK releases, not acceptance of your app or its external integrations.

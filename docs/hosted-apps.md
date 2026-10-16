@@ -6,4 +6,4 @@ See [repository setup and builds](repository-builds.md) for the complete custome
 
 App developers can use `createHostedClient` for session, data, draft, photo and submission services without platform credentials. Declared capabilities restrict existing customer permissions; they do not grant administrator access. Keep private data and photos out of analytics metadata. SMS requires a configured provider and real testing.
 
-The repository workflow replaces URL import, package selection, release acceptance, promotion and restore. Only active serving output is retained. Revert in Git and build again to recover. Registry publication and hosted acceptance of the new workflow are pending; do not treat this branch's documentation as a production availability claim.
+The repository workflow replaces URL import, package selection, release acceptance, promotion and restore. Only active serving output is retained. Revert in Git and build again to recover. The repository workflow has passed hosted development verification. Test your own configured services and production environment before publishing.

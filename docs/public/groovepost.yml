@@ -61,5 +61,8 @@ jobs:
       - name: Deploy this build
         run: npx --no-install groovepost builds deploy dist/app.tar.gz app.config.json
       - name: Record failed build
-        if: failure() || cancelled()
-        run: npx --no-install groovepost builds report ${{ cancelled() && 'cancelled' || 'failed' }}
+        if: failure()
+        run: npx --no-install groovepost builds report failed
+      - name: Record cancelled build
+        if: cancelled()
+        run: npx --no-install groovepost builds report cancelled

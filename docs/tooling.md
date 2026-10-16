@@ -3,7 +3,7 @@
 Install exact verified versions through the configured GitHub registry:
 
 ```sh
-npm install --save-dev --save-exact @groovepost/cli@0.6.7
+npm install --save-dev --save-exact @groovepost/cli@0.6.8
 ```
 
 Use project-local scripts or `npx --no-install groovepost` so an unexpected registry

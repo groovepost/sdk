@@ -12,7 +12,7 @@
 | Tenant operation denied                        | Tenant/environment, customer/admin realm, manifest capabilities and REST permissions      |
 | Entity write returns 409                       | Reload/reconcile current version before retrying                                          |
 | Repository will not connect | Confirm the operator configured the GitHub App; install it only on the selected repository |
-| Build dispatch fails | Commit groovepost.yml to the default and selected branches; confirm installation Actions access |
+| Build dispatch fails | Commit a valid groovepost.yml to the selected branch; confirm installation Actions access |
 | Dependencies fail in CI | Configure PACKAGE_READ_TOKEN and both GitHub Packages scopes; commit the lockfile |
 | App differs from current Git source | Compare the full live SHA with the selected branch, then inspect the latest build logs |
 | Production merge did not deploy | Production builds are manual; explicitly start a build when ready |
