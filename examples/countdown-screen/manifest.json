@@ -1,27 +1,42 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "name": "release-countdown",
   "version": "1.0.0",
-  "runtime": "web-frame-v1",
-  "sdkCompatibility": "^0.3.0",
+  "runtime": "web-features-v1",
+  "sdkCompatibility": "^0.4.0",
   "source": "src/index.tsx",
   "bundle": "app.js",
-  "screens": [
+  "screens": [],
+  "capabilities": [],
+  "features": [
     {
       "id": "countdown",
       "label": "Release countdown",
       "export": "Countdown",
-      "access": "public",
       "options": {
         "type": "object",
         "properties": {
-          "title": { "type": "string", "maxLength": 120 },
-          "releaseDate": { "type": "string", "maxLength": 40 }
+          "title": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "releaseDate": {
+            "type": "string",
+            "maxLength": 40
+          }
         },
-        "required": ["title", "releaseDate"],
+        "required": [
+          "title",
+          "releaseDate"
+        ],
         "additionalProperties": false
-      }
+      },
+      "routes": [
+        {
+          "id": "root",
+          "path": "/"
+        }
+      ]
     }
-  ],
-  "capabilities": []
+  ]
 }

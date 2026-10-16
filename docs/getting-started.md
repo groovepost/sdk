@@ -30,7 +30,7 @@ alone does not prove packages are visible to every developer.
 ## Install a verified version
 
 ```sh
-npm install --save-exact @groovepost/app-sdk@0.4.2
+npm install --save-exact @groovepost/app-sdk@0.4.5
 ```
 
 See [the inventory](./packages.md) before selecting other packages. The SDK is
@@ -55,3 +55,7 @@ capability appropriately for your application. See [sessions](./data-and-session
 
 For an offline first run, use the [REST example](./examples.md). It injects a
 fixture fetch and verifies request scoping without writing tenant data.
+
+## Connect and deploy your repository
+
+Follow [repository setup and builds](repository-builds.md) for main/develop branches, the workflow template, GitHub environment permissions, automatic development and manual production. Keep app layout in app.config.json and verify the exact hosted commit. The guide marks publication and hosted acceptance requirements explicitly.

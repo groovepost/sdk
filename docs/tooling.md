@@ -3,7 +3,7 @@
 Install exact verified versions through the configured GitHub registry:
 
 ```sh
-npm install --save-dev --save-exact @groovepost/cli@0.6.4
+npm install --save-dev --save-exact @groovepost/cli@0.6.8
 ```
 
 Use project-local scripts or `npx --no-install groovepost` so an unexpected registry
@@ -13,13 +13,13 @@ version is not installed. Configure `GROOVEPOST_API_URL` including `/api/v1`,
 
 `groovepost auth login` uses the platform authorization flow. Ordinary administrator
 or customer credentials retain normal REST permissions. Do not use service-role
-keys. The CLI also supports app archive packaging/import/deploy/acceptance/promotion,
+keys. See [repository setup and builds](repository-builds.md) for the new deployment contract and its publication status. The CLI also supports repository builds,
 entity operations and content/design-kit tools. Some content tools depend on
 additional shared publishing packages.
 
 ## MCP
 
-`@groovepost/mcp@0.5.2` provides the `groovepost-mcp` stdio binary and explicitly
+`@groovepost/mcp@0.5.5` provides the `groovepost-mcp` stdio binary and explicitly
 registered REST-backed tools. Configure the same API URL, environment and tenant,
 and an ordinary administrator or customer token for the intended scope. Stdout
 is reserved for MCP protocol output.

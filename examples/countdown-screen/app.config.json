@@ -1,0 +1,21 @@
+{
+  "layout": "app-owned",
+  "defaultDestination": "countdown",
+  "tabs": [
+    {
+      "id": "countdown",
+      "label": "Countdown",
+      "screen": "features",
+      "features": [
+        {
+          "id": "countdown",
+          "feature": "countdown",
+          "options": {
+            "title": "Next release",
+            "releaseDate": "2027-01-01T00:00:00Z"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+> Repository deployment is being updated: see [repository setup and builds](repository-builds.md), including current publication status.
+
 # Build with Groovepost
 
 Use shared platform services and themed controls to build independent tenant apps.

@@ -35,7 +35,8 @@ export default defineConfig({
       {
         text: "Ship",
         items: [
-          { text: "Releases", link: "/releases" },
+          { text: "Repository setup and builds", link: "/repository-builds" },
+          { text: "Build history", link: "/releases" },
           { text: "Troubleshooting", link: "/troubleshooting" },
         ],
       },
