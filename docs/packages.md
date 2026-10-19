@@ -14,7 +14,7 @@ package access or hosted production acceptance.
 | `@groovepost/mcp`         | 0.5.5            | Explicit REST-backed MCP tools                                    |
 
 All use GitHub Packages today. UI/tab-types and some CLI features also depend on
-shared `@danielmarkland` packages there. Configure both scopes. `sell-web` is a
+shared `@danielmarkland` packages there. Configure both scopes. `@groovepost/app-web` is a
 private application package, not a public SDK dependency.
 
 The checked-in version inventory (`versions.json` in the repository root) is the example pin source.
@@ -30,3 +30,15 @@ Installed `.d.ts` files are the exact reference for your package version.
 - CLI binary: `groovepost`; MCP binary: `groovepost-mcp`.
 
 Do not import internal `src` paths or depend on private platform files.
+
+## Forms image contract candidate
+
+The greenfield platform cleanup introduces the app-sdk 0.6.0 and CLI 0.8.0
+contracts. Form submission responses expose `images`; direct clients use
+`uploadImage` and `getImageURL`, hosted clients use `forms.uploadImage` and
+`forms.image`, REST paths use `/images/{slot}`, and the CLI uses `image-upload`.
+Attachments accept JPEG, PNG and WebP images and normalize them to JPEG.
+
+These are unpublished candidates. Update and rebuild affected consumers together
+with the platform after a separately authorized package release; the published
+version inventory above has not been changed by this cleanup.
