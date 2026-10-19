@@ -7,7 +7,7 @@ example application code and release metadata; it is not an implementation mirro
 ## Start here
 
 - [Getting started](docs/getting-started.md): registry access, installation and first API call.
-- [Package inventory](docs/packages.md): verified published versions and responsibilities.
+- [Package inventory](docs/packages.md): current candidate versions and responsibilities.
 - [Component architecture](docs/architecture.md): shared components and tenant customization.
 - [Examples](examples/README.md): REST client, hosted screen, and themed React controls.
 - [Release process](docs/releases.md): versions, compatibility and registry limitations.
@@ -24,7 +24,7 @@ own dependencies; see their READMEs for registry setup and verification commands
 
 SDK packages are currently distributed through GitHub Packages, which requires
 package-read authentication. Token-free npmjs distribution is not yet available.
-See the inventory for verified versions; newer platform APIs may be unreleased.
+See the inventory for candidate versions; newer platform APIs may be unreleased.
 The documentation v1 milestone does not mean the SDK has reached version 1.0.
 
 ## Feedback

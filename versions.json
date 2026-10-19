@@ -1,13 +1,13 @@
 {
-  "verifiedOn": "2026-10-16",
+  "status": "unpublished-release-candidates",
   "registry": "https://npm.pkg.github.com",
   "requiresReadAuthentication": true,
   "packages": {
-    "@groovepost/app-package": "0.2.2",
-    "@groovepost/app-sdk": "0.4.5",
-    "@groovepost/cli": "0.6.8",
-    "@groovepost/mcp": "0.5.5",
-    "@groovepost/tab-types": "0.2.6",
-    "@groovepost/ui": "0.2.3"
+    "@groovepost/app-sdk": "0.6.0",
+    "@groovepost/app-package": "0.4.0",
+    "@groovepost/ui": "0.3.3",
+    "@groovepost/tab-types": "0.4.0",
+    "@groovepost/cli": "0.8.0",
+    "@groovepost/mcp": "0.7.0"
   }
 }

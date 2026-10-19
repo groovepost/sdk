@@ -3,7 +3,7 @@
   "name": "release-countdown",
   "version": "1.0.0",
   "runtime": "web-features-v1",
-  "sdkCompatibility": "^0.4.0",
+  "sdkCompatibility": "^0.6.0",
   "source": "src/index.tsx",
   "bundle": "app.js",
   "screens": [],

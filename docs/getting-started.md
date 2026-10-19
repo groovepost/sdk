@@ -27,10 +27,13 @@ Use your GitHub username and the token when prompted for the password. Package
 permissions and organization policy must allow access; publication configuration
 alone does not prove packages are visible to every developer.
 
-## Install a verified version
+## Install the current candidate after publication
+
+The versions in this PR are unpublished candidates; installation requires their
+separately authorized package release.
 
 ```sh
-npm install --save-exact @groovepost/app-sdk@0.4.5
+npm install --save-exact @groovepost/app-sdk@0.6.0
 ```
 
 See [the inventory](./packages.md) before selecting other packages. The SDK is

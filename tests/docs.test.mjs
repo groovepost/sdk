@@ -4,7 +4,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 const versions = JSON.parse(readFileSync("versions.json"));
 const examples = ["rest-client", "countdown-screen", "themed-controls"];
-test("examples use verified exact SDK releases without private workspace links", () => {
+test("examples use exact SDK candidates without private workspace links", () => {
   for (const example of examples) {
     const p = JSON.parse(readFileSync(`examples/${example}/package.json`));
     assert.equal(p.private, true);
