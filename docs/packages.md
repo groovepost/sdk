@@ -1,10 +1,11 @@
 # Packages and versions
 
-The versions below are unpublished release candidates for the current platform
-contract. Examples target these versions together. Registry publication and a clean
-authenticated installation are required before external use.
+This inventory targets the current platform contract. New SDK/CLI and companion
+versions are unpublished candidates; UI 0.3.3 is already published. Examples target
+this package set together. Publication and a clean authenticated installation are
+required before using the new versions externally.
 
-| Package                   | Candidate version | Purpose                                                           |
+| Package                   | Version | Purpose                                                           |
 | ------------------------- | ---------------- | ----------------------------------------------------------------- |
 | `@groovepost/app-sdk`     | 0.6.0            | REST client, hosted widgets, data/session operations |
 | `@groovepost/app-package` | 0.4.0            | Current app build contracts and tooling                  |
@@ -41,3 +42,10 @@ Attachments accept JPEG, PNG and WebP images and normalize them to JPEG.
 
 These are unpublished candidates. Update and rebuild affected consumers together
 with the platform after a separately authorized package release; the inventory and examples target the same candidate contract.
+
+## Framework boundaries
+
+The REST client is framework-independent. Hosted widgets, shared web controls and
+standard tab views target the web. Native Expo apps own their native presentation;
+shared web tab views are not React Native components. Upgrading a native app requires
+checking that boundary as well as updating its package pins and explicit API origin.

@@ -1,5 +1,5 @@
 {
-  "status": "unpublished-release-candidates",
+  "status": "release-candidate-set",
   "registry": "https://npm.pkg.github.com",
   "requiresReadAuthentication": true,
   "packages": {
