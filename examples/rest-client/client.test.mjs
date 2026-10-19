@@ -14,7 +14,7 @@ test("SDK scopes the request and retains the customer capability", async () => {
   await api.createCustomerSession();
   assert.equal(
     calls[0].url,
-    "https://fixture.example/api/v1/funnel/example/development/sessions",
+    "https://fixture.example/api/v1/tenants/example/environments/development/customer/sessions",
   );
   assert.equal(
     new Headers(calls[0].init.headers).get("x-groovepost-tenant"),
