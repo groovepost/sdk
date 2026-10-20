@@ -1,5 +1,5 @@
 {
-  "status": "release-candidate-set",
+  "status": "published",
   "registry": "https://npm.pkg.github.com",
   "requiresReadAuthentication": true,
   "packages": {
@@ -7,7 +7,10 @@
     "@groovepost/app-package": "0.4.0",
     "@groovepost/ui": "0.3.3",
     "@groovepost/tab-types": "0.4.0",
-    "@groovepost/cli": "0.8.0",
+    "@groovepost/cli": "0.9.0",
     "@groovepost/mcp": "0.7.0"
-  }
+  },
+  "verifiedAt": "2026-10-20",
+  "sourceCommit": "6243af178ca907e2717254a53e692b48258de398",
+  "publicationRun": "https://github.com/groovepost/platform/actions/runs/39484847202"
 }

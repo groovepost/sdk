@@ -1,9 +1,9 @@
 # Packages and versions
 
-This inventory targets the current platform contract. New SDK/CLI and companion
-versions are unpublished candidates; UI 0.3.3 is already published. Examples target
-this package set together. Publication and a clean authenticated installation are
-required before using the new versions externally.
+This inventory records the current platform package set. Examples pin these
+versions together and install through authenticated GitHub Packages access.
+The [2026-10-20 publication](https://github.com/groovepost/platform/actions/runs/39484847202)
+verified immutable archives and a clean registry installation.
 
 | Package                   | Version | Purpose                                                           |
 | ------------------------- | ---------------- | ----------------------------------------------------------------- |
@@ -11,7 +11,7 @@ required before using the new versions externally.
 | `@groovepost/app-package` | 0.4.0            | Current app build contracts and tooling                  |
 | `@groovepost/ui`          | 0.3.3            | Shared web controls, tenant theming and styles                    |
 | `@groovepost/tab-types`   | 0.4.0            | Standard application tab definitions                              |
-| `@groovepost/cli`         | 0.8.0            | Developer login, repository builds and content tools      |
+| `@groovepost/cli`         | 0.9.0            | Developer login, repository builds and content tools      |
 | `@groovepost/mcp`         | 0.7.0            | Explicit REST-backed MCP tools                                    |
 
 All use GitHub Packages today. UI/tab-types and some CLI features also depend on
@@ -19,7 +19,6 @@ shared `@danielmarkland` packages there. Configure both scopes. `@groovepost/app
 private application package, not a public SDK dependency.
 
 The checked-in version inventory (`versions.json` in the repository root) is the example pin source.
-Updated platform versions are release candidates until registry checks pass.
 Installed `.d.ts` files are the exact reference for your package version.
 
 ## Import boundaries
@@ -32,16 +31,16 @@ Installed `.d.ts` files are the exact reference for your package version.
 
 Do not import internal `src` paths or depend on private platform files.
 
-## Forms image contract candidate
+## Forms image contract
 
-The greenfield platform cleanup introduces the app-sdk 0.6.0 and CLI 0.8.0
+The greenfield platform cleanup introduces the app-sdk 0.6.0 and CLI 0.9.0
 contracts. Form submission responses expose `images`; direct clients use
 `uploadImage` and `getImageURL`, hosted clients use `forms.uploadImage` and
 `forms.image`, REST paths use `/images/{slot}`, and the CLI uses `image-upload`.
 Attachments accept JPEG, PNG and WebP images and normalize them to JPEG.
 
-These are unpublished candidates. Update and rebuild affected consumers together
-with the platform after a separately authorized package release; the inventory and examples target the same candidate contract.
+Update and rebuild affected consumers together with the platform. Registry
+installation and CI checks do not establish hosted customer-flow acceptance.
 
 ## Framework boundaries
 

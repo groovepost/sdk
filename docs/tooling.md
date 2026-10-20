@@ -1,9 +1,9 @@
 # CLI and MCP
 
-Install exact candidate versions through the configured GitHub registry:
+Install exact versions through the configured GitHub registry:
 
 ```sh
-npm install --save-dev --save-exact @groovepost/cli@0.8.0
+npm install --save-dev --save-exact @groovepost/cli@0.9.0
 ```
 
 Use project-local scripts or `npx --no-install groovepost` so an unexpected registry
