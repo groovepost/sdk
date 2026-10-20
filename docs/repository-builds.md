@@ -40,12 +40,12 @@ Local sign-in is for developer setup and settings sync. The deployed widget uses
 ```json
 {
   "layout": "app-owned",
-  "defaultDestination": "sell",
+  "defaultDestination": "catalog",
   "tabs": [{
-    "id": "sell",
-    "label": "Sell records",
+    "id": "catalog",
+    "label": "Catalog",
     "screen": "features",
-    "features": [{ "id": "seller", "feature": "wbur-sell", "options": {} }]
+    "features": [{ "id": "catalog", "feature": "catalog", "options": {} }]
   }]
 }
 ```
