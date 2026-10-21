@@ -13,3 +13,6 @@ not describe an unreleased API as available. Do not include implementation patch
 from private repositories. For SDK behavior issues include a minimal consumer
 reproduction and exact package versions; maintainers route implementation work
 internally.
+
+Update root `CHANGELOG.md` for noteworthy documentation changes; explain exemptions
+in the PR. See [release guidance](docs/releases.md) for the app convention.

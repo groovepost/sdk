@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased — developer documentation v1
+## Unreleased
+
+### Added
+
+- App changelog maintenance and repository release milestone guidance.
+  — developer documentation v1
 
 - Document the six existing SDK/tooling packages and verified registry versions.
 - Add installation, architecture, theming, sessions/data, hosted app and tooling guides.
