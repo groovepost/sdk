@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- Align package inventory and example pins with the verified production SDK release; document released CLI changelog scaffolding.
+
 ### Added
 
 - App changelog maintenance and repository release milestone guidance.

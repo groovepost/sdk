@@ -2,17 +2,17 @@
 
 This inventory records the current platform package set. Examples pin these
 versions together and install through authenticated GitHub Packages access.
-The [2026-10-20 publication](https://github.com/groovepost/platform/actions/runs/39484847202)
+The [2026-10-21 production publication](https://github.com/groovepost/platform/actions/runs/39680586199)
 verified immutable archives and a clean registry installation.
 
-| Package                   | Version | Purpose                                                           |
-| ------------------------- | ---------------- | ----------------------------------------------------------------- |
-| `@groovepost/app-sdk`     | 0.6.0            | REST client, hosted widgets, data/session operations |
-| `@groovepost/app-package` | 0.4.0            | Current app build contracts and tooling                  |
-| `@groovepost/ui`          | 0.3.3            | Shared web controls, tenant theming and styles                    |
-| `@groovepost/tab-types`   | 0.4.0            | Standard application tab definitions                              |
-| `@groovepost/cli`         | 0.9.0            | Developer login, repository builds and content tools      |
-| `@groovepost/mcp`         | 0.7.0            | Explicit REST-backed MCP tools                                    |
+| Package                   | Version | Purpose                                              |
+| ------------------------- | ------- | ---------------------------------------------------- |
+| `@groovepost/app-sdk`     | 0.6.2   | REST client, hosted widgets, data/session operations |
+| `@groovepost/app-package` | 0.4.0   | Current app build contracts and tooling              |
+| `@groovepost/ui`          | 0.3.3   | Shared web controls, tenant theming and styles       |
+| `@groovepost/tab-types`   | 0.4.3   | Standard application tab definitions                 |
+| `@groovepost/cli`         | 0.9.3   | Developer login, repository builds and content tools |
+| `@groovepost/mcp`         | 0.7.2   | Explicit REST-backed MCP tools                       |
 
 All use GitHub Packages today. UI/tab-types and some CLI features also depend on
 shared `@danielmarkland` packages there. Configure both scopes. `@groovepost/app-web` is a

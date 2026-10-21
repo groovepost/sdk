@@ -32,7 +32,7 @@ alone does not prove packages are visible to every developer.
 Install the exact SDK version from the package inventory:
 
 ```sh
-npm install --save-exact @groovepost/app-sdk@0.6.0
+npm install --save-exact @groovepost/app-sdk@0.6.2
 ```
 
 See [the inventory](./packages.md) before selecting other packages. The SDK is
