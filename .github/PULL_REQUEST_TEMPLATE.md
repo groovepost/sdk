@@ -6,3 +6,9 @@ Validation:
 - [ ] Changed examples install from released packages and pass their checks.
 - [ ] SDK pins match versions.json; no workspace or private source imports.
 - [ ] No credentials, private tenant data or unreleased-API availability claims.
+
+## Changelog
+
+- [ ] Updated `CHANGELOG.md` under `Unreleased`, or explained below why no entry is needed.
+
+Changelog exemption (if applicable):
