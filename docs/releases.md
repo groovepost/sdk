@@ -28,6 +28,7 @@ independently published package versions.
 
 ## Adopting the convention
 
-The upcoming CLI scaffold includes a changelog, release guide, PR checklist and
-agent rules. It is pending registry publication. Existing applications add these
-files explicitly; installing a new SDK version does not rewrite project files.
+CLI 0.9.3 includes a changelog, release guide, PR checklist and agent rules in
+new app scaffolds. Existing applications add these files explicitly; installing
+a new SDK version does not rewrite project files. See the [verified package
+inventory](packages.md) for the production publication evidence.

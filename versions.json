@@ -3,14 +3,14 @@
   "registry": "https://npm.pkg.github.com",
   "requiresReadAuthentication": true,
   "packages": {
-    "@groovepost/app-sdk": "0.6.0",
+    "@groovepost/app-sdk": "0.6.2",
     "@groovepost/app-package": "0.4.0",
     "@groovepost/ui": "0.3.3",
-    "@groovepost/tab-types": "0.4.0",
-    "@groovepost/cli": "0.9.0",
-    "@groovepost/mcp": "0.7.0"
+    "@groovepost/tab-types": "0.4.3",
+    "@groovepost/cli": "0.9.3",
+    "@groovepost/mcp": "0.7.2"
   },
-  "verifiedAt": "2026-10-20",
-  "sourceCommit": "6243af178ca907e2717254a53e692b48258de398",
-  "publicationRun": "https://github.com/groovepost/platform/actions/runs/39484847202"
+  "verifiedAt": "2026-10-21",
+  "sourceCommit": "2e606df82b010faebc544b23963ecaf0bc53075e",
+  "publicationRun": "https://github.com/groovepost/platform/actions/runs/39680586199"
 }
