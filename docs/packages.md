@@ -2,7 +2,7 @@
 
 This inventory records the current platform package set. Examples pin these
 versions together and install through authenticated GitHub Packages access.
-The [2026-10-21 production publication](https://github.com/groovepost/platform/actions/runs/39680586199)
+The [2026-10-22 production publication](https://github.com/groovepost/platform/actions/runs/39800362027)
 verified immutable archives and a clean registry installation.
 
 | Package                   | Version | Purpose                                              |
@@ -11,7 +11,7 @@ verified immutable archives and a clean registry installation.
 | `@groovepost/app-package` | 0.4.0   | Current app build contracts and tooling              |
 | `@groovepost/ui`          | 0.3.3   | Shared web controls, tenant theming and styles       |
 | `@groovepost/tab-types`   | 0.4.3   | Standard application tab definitions                 |
-| `@groovepost/cli`         | 0.9.3   | Developer login, repository builds and content tools |
+| `@groovepost/cli`         | 0.9.4   | Developer login, repository builds and content tools |
 | `@groovepost/mcp`         | 0.7.2   | Explicit REST-backed MCP tools                       |
 
 All use GitHub Packages today. UI/tab-types and some CLI features also depend on
