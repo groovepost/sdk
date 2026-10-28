@@ -1,5 +1,3 @@
-> Repository deployment is being updated: see [repository setup and builds](repository-builds.md), including current publication status.
-
 # Build with Groovepost
 
 Use shared platform services and themed controls to build independent tenant apps.
@@ -15,7 +13,10 @@ remain subject to tenant configuration, permissions and hosted acceptance.
 
 ## Status
 
-This is the first developer-documentation milestone. Packages remain 0.x and use
+Documentation and independently published packages have separate versions. Packages remain 0.x and use
 GitHub Packages with read authentication. npmjs distribution and a complete
 Shopify-derived UI component library are future work. The [architecture](./architecture.md)
 records that design direction without claiming every extension point is implemented.
+
+Use [onboarding](onboarding.md), [forms](forms-submissions.md), [services](services.md),
+and [design authoring](design-agent-kit.md) for workflow-specific guidance.

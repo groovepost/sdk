@@ -32,6 +32,9 @@ scope in `x-groovepost-tenant`. The URL must include `/api/v1`. A custom `fetch`
 implementation supports fixtures and integration testing. Requests reject
 redirects; fix the configured URL rather than relying on a redirect.
 
-Methods cover data, seller drafts, photos, verification, submissions, developer
+Methods cover data, versioned form drafts, images, verification, submissions, developer
 onboarding and hosted app lifecycle. Consult installed declarations for exact
 request/response shapes. REST remains authoritative for permissions and validation.
+
+See [authentication](authentication.md), [data](data-and-sessions.md) and
+[forms](forms-submissions.md) for scope, validation and lifecycle contracts.

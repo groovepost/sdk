@@ -13,6 +13,19 @@ example application code and release metadata; it is not an implementation mirro
 - [Release process](docs/releases.md): versions, compatibility and registry limitations.
 - [Troubleshooting](docs/troubleshooting.md) and [support](CONTRIBUTING.md).
 
+## Developer guides
+
+- [Tenant onboarding](docs/onboarding.md), [environments](docs/environments.md) and [repository builds](docs/repository-builds.md)
+- [App authoring](docs/developer-contract.md), [hosted widgets](docs/hosted-apps.md) and [controls](docs/theming.md)
+- [Authentication](docs/authentication.md), [data](docs/data-and-sessions.md), [forms](docs/forms-submissions.md) and [email](docs/submission-email.md)
+- [Services](docs/services.md), [commerce](docs/commerce.md) and [advertising](docs/advertising.md)
+- [Design authoring](docs/design-agent-kit.md), [layouts](docs/site-layouts.md) and [site transfer](docs/site-transfer.md)
+
+These are the canonical consumer guides. Operator deployment procedures, credentials,
+database implementation and release evidence stay in the private platform repository.
+Published versions remain governed by `versions.json`; documentation consolidation
+publishes no packages and changes no application behavior.
+
 ## Documentation development
 
 Use Node 22 or newer. Run `npm ci`, `npm test`, then `npm run docs:dev`.
