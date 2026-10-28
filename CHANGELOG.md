@@ -4,6 +4,10 @@
 
 ### Changed
 
+- Consolidated consumer documentation from the platform: onboarding, environment/authentication, widget authoring, data/forms, email/services, commerce, advertising and site design/transfer. Corrected retired workflow guidance and preserved published-version boundaries.
+
+### Changed
+
 - Align package inventory and example pins with the verified production SDK release; document released CLI changelog scaffolding.
 
 ### Added
