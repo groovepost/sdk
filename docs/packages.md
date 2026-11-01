@@ -35,7 +35,7 @@ Do not import internal `src` paths or depend on private platform files.
 
 The greenfield platform cleanup introduces the app-sdk 0.6.0 and CLI 0.9.0
 contracts. Form submission responses expose `images`; direct clients use
-`uploadImage` and `getImageURL`, hosted clients use `forms.uploadImage` and
+`uploadImage` and `getImage`, hosted clients use `forms.uploadImage` and
 `forms.image`, REST paths use `/images/{slot}`, and the CLI uses `image-upload`.
 Attachments accept JPEG, PNG and WebP images and normalize them to JPEG.
 
@@ -48,3 +48,5 @@ The REST client is framework-independent. Hosted widgets, shared web controls an
 standard tab views target the web. Native Expo apps own their native presentation;
 shared web tab views are not React Native components. Upgrading a native app requires
 checking that boundary as well as updating its package pins and explicit API origin.
+
+The package-deployment candidate serves photo bytes through the authorized API. `getImage` returns an ArrayBuffer; hosted `forms.image` retains that same byte contract. Generic CLI/MCP operation adapters return `{mimeType,dataBase64}`. Storage endpoints and signed storage links are not exposed by these photo operations. This requires the coordinated candidate SDK release.

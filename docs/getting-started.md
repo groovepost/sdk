@@ -58,6 +58,6 @@ capability appropriately for your application. See [sessions](./data-and-session
 For an offline first run, use the [REST example](./examples.md). It injects a
 fixture fetch and verifies request scoping without writing tenant data.
 
-## Connect and deploy your repository
+## Build and upload an app
 
-Follow [repository setup and builds](repository-builds.md) for main/develop branches, the workflow template, GitHub environment permissions, automatic development and manual production. Keep app layout in app.config.json and verify the exact hosted commit. The guide marks publication and hosted acceptance requirements explicitly.
+Follow [local packages and promotion](app-packages.md): build locally, verify and upload one archive to Development. Import layout defaults explicitly, publish and test before promoting the exact package and published layout to Production. No repository connection or custom workflow is required. Publication and hosted acceptance are separate prerequisites.

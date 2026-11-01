@@ -20,7 +20,7 @@ composer and widget runtime. See [the current app model](hosted-apps.md).
 - Shared controls should provide tenant theming, accessibility, loading/error
   states and standard interaction analytics by default. Custom controls can use
   the same public theme tokens and supported analytics operations.
-- Groovepost supplies authentication, persistence, uploads and repository-based app
+- Groovepost supplies authentication, persistence, uploads and package-based app
   deployment through supported REST services, SDK, CLI and MCP adapters. Widgets
   execute trusted code in the app document. Named capabilities and
   server-side tenant/customer authorization restrict service operations; they do

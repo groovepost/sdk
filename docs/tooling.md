@@ -13,7 +13,7 @@ version is not installed. Configure `GROOVEPOST_API_URL` including `/api/v1`,
 
 `groovepost auth login` uses the platform authorization flow. Ordinary administrator
 or customer credentials retain normal REST permissions. Do not use service-role
-keys. See [repository setup and builds](repository-builds.md) for the new deployment contract and its publication status. The CLI also supports repository builds,
+keys. See [local packages and promotion](app-packages.md) for the new deployment contract and its publication status. The CLI also supports local package verification and uploads,
 entity operations and content/design-kit tools. Some content tools depend on
 additional shared publishing packages.
 

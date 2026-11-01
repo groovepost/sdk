@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Replace connected-repository deployment guidance with single-file Development uploads and explicit package/layout promotion; remove the obsolete GroovePost build workflow. Candidate toolkit release and hosted cutover remain pending.
+
 ### Changed
 
 - Consolidated consumer documentation from the platform: onboarding, environment/authentication, widget authoring, data/forms, email/services, commerce, advertising and site design/transfer. Corrected retired workflow guidance and preserved published-version boundaries.

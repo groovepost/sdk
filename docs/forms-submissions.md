@@ -26,8 +26,7 @@ and third-party server validators are not executed.
 
 ## Install and enable
 
-Include a `forms` array in the app manifest. A successfully activated repository
-build registers definitions atomically with its output; it does not enable the
+Include a `forms` array in the app manifest. A successfully activated package registers definitions atomically with its output; it does not enable the
 module. Owners/admins enable each tenant/environment through **Forms settings**
 (`/admin/forms`) or `groovepost forms configure true manifest.json`. Definitions
 can also be registered through that command without building a custom app.
@@ -64,7 +63,7 @@ replace authorization.
 Form attachments are images only: JPEG, PNG or WebP, up to 10 MiB each. The service
 normalizes them to JPEG and applies the pinned definition's count, minimum image
 dimensions and distinctness requirements. It does not accept arbitrary files.
-Responses expose `images`; SDK operations are `uploadImage` and `getImageURL`.
+Responses expose `images`; SDK operations are `uploadImage` and `getImage`.
 Hosted operations are `forms.uploadImage` and `forms.image`; REST routes use
 `/images/{slot}` and the CLI uses `image-upload`.
 
@@ -82,3 +81,5 @@ is handled by the platform. SDK clients expose `discardDraft(id, expectedRevisio
 hosted apps call `forms.discardDraft` under `forms.drafts`. CLI: `forms draft-discard <id> <expected-revision>`. MCP: `draft_discard`.
 
 Forms may declare `emailField` to enable authenticated, verified-contact submission email notifications. See [submission email](submission-email.md). Drafts can explicitly upgrade to the newest installed version at their current revision; previous answers are archived and submitted definitions remain pinned.
+
+The package-deployment candidate serves photo bytes through the authorized API. `getImage` returns an ArrayBuffer; hosted `forms.image` retains that same byte contract. Generic CLI/MCP operation adapters return `{mimeType,dataBase64}`. Storage endpoints and signed storage links are not exposed by these photo operations. This requires the coordinated candidate SDK release.

@@ -15,7 +15,7 @@ example application code and release metadata; it is not an implementation mirro
 
 ## Developer guides
 
-- [Tenant onboarding](docs/onboarding.md), [environments](docs/environments.md) and [repository builds](docs/repository-builds.md)
+- [Tenant onboarding](docs/onboarding.md), [environments](docs/environments.md) and [app packages](docs/app-packages.md)
 - [App authoring](docs/developer-contract.md), [hosted widgets](docs/hosted-apps.md) and [controls](docs/theming.md)
 - [Authentication](docs/authentication.md), [data](docs/data-and-sessions.md), [forms](docs/forms-submissions.md) and [email](docs/submission-email.md)
 - [Services](docs/services.md), [commerce](docs/commerce.md) and [advertising](docs/advertising.md)
@@ -47,4 +47,4 @@ Use issues for reproducible SDK integration problems and documentation correctio
 Never post credentials, private tenant data or implementation code. See SECURITY.md
 for private security reporting instructions.
 
-See [repository setup and builds](docs/repository-builds.md) for the repository-based deployment workflow and its current publication/acceptance status.
+See [local packages and promotion](docs/app-packages.md) for the package-based deployment workflow and its current publication/acceptance status.
