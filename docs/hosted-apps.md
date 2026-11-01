@@ -5,11 +5,11 @@
 > or acceptance of your configured services. Check installed declarations and the selected
 > environment's authenticated API documentation before using an operation.
 
-The repository owns its app code and composition. `defineWidget` exports current schema-3 widgets with IDs, mount/cleanup functions and routes including `/`. App-specific UI stays in the independent consumer repository. GroovePost supplies tenant context, shared controls and platform services.
+The repository owns custom widget code. App Builder owns the tenant/environment composition after an explicit import. `defineWidget` exports current schema-3 widgets with IDs, mount/cleanup functions and routes including `/`. App-specific UI stays in the independent consumer repository. GroovePost supplies tenant context, shared controls and platform services.
 
-`app.config.json` chooses `layout: "tabs"`, `"master-detail"` or `"app-owned"`, a default destination and composed screens. The transport uses `tabs` for screens and `features` for widget instances. Feed, content and shop are built-in widgets. Packaged widgets come from the current build; developers do not supply digests or select historical packages. Options are checked against declared schemas. `app-owned` requires one packaged widget on one screen and preserves that app's own header, footer, navigation and content widths.
+`app.config.json` supplies initial defaults for `layout: "tabs"`, `"master-detail"` or `"app-owned"`, a default destination and composed screens. The transport uses `tabs` for screens and `features` for widget instances. Feed, content and shop are built-in widgets. Packaged widgets come from the current build; developers do not supply digests or select historical packages. Options are checked against declared schemas. `app-owned` requires one packaged widget on one screen and preserves that app's own header, footer, navigation and content widths.
 
-Use [repository builds](repository-builds.md) to connect GitHub and configure branches. App deployments shows repository, branch settings, live commit and build history. Layout editing happens in source control. Manual import, package versions, structure preview, acceptance records, promotion and restore are removed. The current runtime replaces the earlier frame runtime; it does not add a compatibility path.
+App Builder owns draft and published layout after an explicit import of initial defaults. Custom widget code can be built and uploaded locally through the CLI without connecting a repository; [repository builds](repository-builds.md) remain optional automation. Apps shows code deployment status; App Builder independently saves, previews and publishes composition. The current runtime replaces the earlier frame runtime.
 
 ## Trust and destinations
 
@@ -29,3 +29,13 @@ Repository lifecycle tests cover authorization, webhook/Actions identity, exact 
 
 See [app authoring and loading](developer-contract.md), [authentication](authentication.md),
 [forms](forms-submissions.md), and [onboarding](onboarding.md).
+
+## Editable App Builder (candidate implementation)
+
+App Builder works without a repository. Add ordered screens and independent widget instances, save a draft, preview it, then explicitly publish to the selected environment. Code builds update available plugins without replacing saved composition. Import Repository Layout previews source defaults and replaces the draft only after confirmation. Existing deployed configurations are migrated without changing their live behavior.
+
+The built-in Feed is labeled **Post List** in the admin and supports per-instance `heading` and `limit` (1–100). It renders on web and in the native reference app. Page Content and Shop remain web widgets; Shop requires its service connection. Custom repository widgets are web-only until they supply a native implementation. Undeployed manifest entries appear as Build required and cannot be published.
+
+SDK source remains in the platform repository. The candidate composition client is `client.composition`: `read`, `save(revision, composition)`, `preview`, `publish(revision)`, `repositoryLayout` and `importRepository(revision, sourceSHA)`. Writes require an owner/admin and use optimistic revisions. `/app-config` returns only published `configuration`; editor endpoints return separate `draft` and `published` values. Old builder/custom tab configuration is superseded rather than maintained as another runtime. These contracts require the candidate platform and SDK release; the package inventory records published versions separately.
+
+See the [native reference app](../examples/native-post-list/README.md). It exercises the same saved composition on iOS/Android; it does not port WBUR's app-owned web UI.

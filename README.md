@@ -9,7 +9,7 @@ example application code and release metadata; it is not an implementation mirro
 - [Getting started](docs/getting-started.md): registry access, installation and first API call.
 - [Package inventory](docs/packages.md): current versions and responsibilities.
 - [Component architecture](docs/architecture.md): shared components and tenant customization.
-- [Examples](examples/README.md): REST client, hosted screen, and themed React controls.
+- [Examples](examples/README.md): REST client, hosted screen, themed React controls and the candidate native Post List consumer.
 - [Release process](docs/releases.md): versions, compatibility and registry limitations.
 - [Troubleshooting](docs/troubleshooting.md) and [support](CONTRIBUTING.md).
 

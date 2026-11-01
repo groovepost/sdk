@@ -1,8 +1,10 @@
 # Repository builds
 
+Repository automation is optional. The App Builder candidate CLI also supports authenticated local package uploads with no GitHub App or Actions setup; see [local uploads](#local-package-upload).
+
 The development workflow was verified with an independent client app on 2026-10-16. Production and external integrations require their own acceptance.
 
-The connected GitHub repository owns app code, `manifest.json`, `app.config.json`, dependency pins and CI. GroovePost owns tenant settings, shared services, environment branch selection and the active deployment. Development builds automatically on a push to its assigned branch. Production builds only when an administrator selects **Build and deploy**. Merging production's branch does not publish it. There is no scheduler or cron job.
+The connected GitHub repository owns app code, `manifest.json`, initial `app.config.json` defaults, dependency pins and CI. GroovePost owns tenant settings, shared services, environment branch selection and the active deployment. Development builds automatically on a push to its assigned branch. Production builds only when an administrator selects **Build and deploy**. Merging production's branch does not publish it. There is no scheduler or cron job.
 
 GroovePost receives the signed GitHub push webhook and dispatches the repository workflow when development automation is enabled. The workflow itself uses `workflow_dispatch`; do not add a production push trigger.
 
@@ -21,7 +23,7 @@ See [tenant-linked onboarding](onboarding.md) for new repositories and `--adopt`
 
 ## Repository build contract
 
-`npm run build` runs `groovepost apps build manifest.json dist/app.tar.gz`. The archive contains the current schema-3 `web-features-v1` bundle, styles and manifest; it is build transport, not a customer package registry. `app.config.json` contains composition in source control:
+`npm run build` runs `groovepost apps build manifest.json dist/app.tar.gz`. The archive contains the current schema-3 `web-features-v1` bundle, styles and manifest; it is build transport, not a customer package registry. `app.config.json` contains importable initial composition defaults in source control:
 
 ```json
 {
@@ -53,3 +55,26 @@ The operator must make the App installable on your GitHub account or organizatio
 The GitHub App needs Contents read and Actions read/write plus Metadata read. It receives push and workflow-run webhooks. It does not write your source or administer your repository. CI uses an existing GitHub runner; no new build worker, scheduler, cron or polling service is required.
 
 Development verification covered repository installation, automatic push deployment of the exact commit, failed-build isolation, original app design, saved draft/photo recovery, and website/app navigation. Only one serving output remained after successful cleanup. Real SMS and authenticated submission were deferred. Package version metadata describes published SDK releases, not acceptance of your app or its external integrations.
+
+App Builder imports defaults only after review and confirmation. Subsequent builds preserve saved draft/published composition and must remain compatible with referenced widgets. Removing or invalidating a referenced widget rejects activation and leaves the current app live. Composition publication is separate from code deployment.
+
+
+## Local package upload
+
+The implementation on platform PR #199 adds this flow (package release pending):
+
+```sh
+groovepost auth login
+groovepost apps build manifest.json dist/app.tar.gz
+groovepost apps verify dist/app.tar.gz
+groovepost apps deploy dist/app.tar.gz app.config.json
+```
+
+Set `GROOVEPOST_API_URL`, `GROOVEPOST_TENANT` and
+`GROOVEPOST_ENVIRONMENT=development` explicitly first. This uses your CLI login and
+owner/admin permission, uploads bytes privately, and validates checksum, package
+contract, origins and composition compatibility before activation. Production
+requires `--confirm-production`. It neither connects a repository nor replaces
+App Builder composition. Initial layout defaults must be imported explicitly and
+published separately. Run local tests before building; verification is not malware
+certification. Do not claim this command exists in older published CLI versions.
