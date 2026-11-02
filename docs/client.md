@@ -2,7 +2,7 @@
 
 `createGroovePostClient` accepts an explicit `apiUrl`, `tenantSlug` and optional
 `environment`, customer capability and administrator token. Select environment
-explicitly in every deployment; operations may otherwise default to production.
+explicitly in every deployment; reads may otherwise default to Production; scoped mutations require an explicit environment.
 
 ```ts
 import { createGroovePostClient, GroovePostError } from "@groovepost/app-sdk";
@@ -38,3 +38,7 @@ request/response shapes. REST remains authoritative for permissions and validati
 
 See [authentication](authentication.md), [data](data-and-sessions.md) and
 [forms](forms-submissions.md) for scope, validation and lifecycle contracts.
+
+## Postal-code reference data
+
+`client.reference.postalCodeUS("02108")` uses the public cacheable `GET /api/v1/reference/postal-codes/us/{zip}` endpoint. It returns `{country:"US",postalCode,places:[{city,state}]}`; unknown ZIPs return an empty list and malformed ZIPs are rejected. The hosted client exposes the same operation without customer authentication. These are suggestions, not address verification; keep manual entry available.

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Document the candidate ES-module extension contract, postal reference API, retired helpers and publication prerequisites; load tenant presentation settings in the native reference consumer.
+
 - Replace connected-repository deployment guidance with single-file Development uploads and explicit package/layout promotion; remove the obsolete GroovePost build workflow. Candidate toolkit release and hosted cutover remain pending.
 
 ### Changed

@@ -11,7 +11,7 @@ verified immutable archives and a clean registry installation.
 | `@groovepost/app-package` | 0.4.0   | Current app build contracts and tooling              |
 | `@groovepost/ui`          | 0.3.3   | Shared web controls, tenant theming and styles       |
 | `@groovepost/tab-types`   | 0.4.3   | Standard application tab definitions                 |
-| `@groovepost/cli`         | 0.9.4   | Developer login, repository builds and content tools |
+| `@groovepost/cli`         | 0.9.4   | Developer login, package upload/promotion and content tools |
 | `@groovepost/mcp`         | 0.7.2   | Explicit REST-backed MCP tools                       |
 
 All use GitHub Packages today. UI/tab-types and some CLI features also depend on
@@ -50,3 +50,9 @@ shared web tab views are not React Native components. Upgrading a native app req
 checking that boundary as well as updating its package pins and explicit API origin.
 
 The package-deployment candidate serves photo bytes through the authorized API. `getImage` returns an ArrayBuffer; hosted `forms.image` retains that same byte contract. Generic CLI/MCP operation adapters return `{mimeType,dataBase64}`. Storage endpoints and signed storage links are not exposed by these photo operations. This requires the coordinated candidate SDK release.
+
+## Cleanup candidate
+
+The table and versions.json above record the last verified publication, not the contents of PR #199. The [generated candidate inventory](https://github.com/groovepost/platform/blob/codex/admin-editor-polish/docs/sdk-candidate-versions.json) comes from owning package manifests. Changed archives need newly authorized immutable versions and clean registry installation before consumer pins are updated. Local tarball acceptance is recorded separately.
+
+The candidate retires tab-types, defineTabType/createGroovePostApp and the UI root groovePostTheme export. Use canonical App Builder compositions, defineWidget, and tenant settings. Next.js is required only for Next-specific publishing UI entrypoints; basic extension controls do not require the Next peer.
