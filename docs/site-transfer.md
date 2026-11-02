@@ -1,36 +1,71 @@
-# Site transfer
+# JSON Import / Export
 
-> These guides describe the current supported contracts. The [package inventory](packages.md)
-> records verified published versions; newer source changes do not imply package publication
-> or acceptance of your configured services. Check installed declarations and the selected
-> environment's authenticated API documentation before using an operation.
+These contracts are implemented in the current platform PR #199 candidate. Shared package source changes are local previews, not a published release. Consult the selected environment’s authenticated API docs and installed package declarations before using the new operations.
 
-Site transfer replaces supported editorial content between resource environments
-of the same tenant account inside one platform instance. Environment membership
-and administrator access are checked when requesting and executing each operation.
-Source environments come from the tenant environment registry; there is no manual
-pairing or remote peer configuration.
+Import / Export is an immediate, authenticated owner/admin API workflow. It needs
+no transfer worker, archive bucket, signed storage URL or scheduled job.
 
-Shared publishing packages own archive validation, relationship remapping, original
-media, draft/published separation and atomic replacement. The platform supplies
-resource scope, private storage, authorization and durable jobs. Domains,
-credentials, integrations, access and billing stay with the destination.
+- **Theme** exports only Site Settings `theme` and `buttons`: colors, typography,
+  appearance and button styles. Import updates the existing settings document.
+- **Full Site** exports supported editorial content, current/published draft
+  states, taxonomy, navigation and site settings. Import replaces those resources
+  transactionally and remaps relationships between imported records.
+- Media files and media records are never exported, uploaded, deleted or copied.
+  Existing media references (including rich-text uploads) remain unchanged. They
+  must be valid for the destination: native validation rejects missing or cross-tenant media IDs. Import never clears references or relocates assets.
+- Domains, accounts, memberships, credentials, integrations, billing, forms,
+  submissions and app packages/composition remain environment-specific.
 
-## Availability
+## Admin flow
 
-Transfer execution requires operator-provisioned storage and an explicitly run
-worker. Background scheduling is deferred. Confirm execution availability with
-the operator before starting an import; do not assume a queued request will run.
-Offline validation and packing need neither credentials nor a running worker.
+Export downloads a `.json` file directly. Import reads a `.json` file, validates
+it through the API and shows incoming/replaced counts and the destination. Type
+the exact environment/site confirmation before applying. The API rechecks the
+file and current destination fingerprint under the editorial lock. Invalid or
+stale imports fail without changing the site; native validation/hooks and
+transaction rollback remain active. On success, a JSON copy of the previous
+content/settings downloads for manual recovery through the same import flow.
+No server-side backup or operation history is stored by this workflow.
 
-The admin interface and `groovepost site` support export, import, transfer, status, apply
-and restore. CLI requests use the configured platform connection and explicit tenant
-environment. A transfer selects `--from` and `--to` environments of that account.
-Imports, transfers and restores stop at a preview. Applying requires the exact
-`environment:tenant-slug` destination confirmation. Changed destinations or packages
-require a fresh preview. A backup and committed receipt protect replacement and
-retry; restore creates another preview requiring confirmation.
+JSON documents and HTTP request bodies are bounded to 4 MiB. Oversized data is
+rejected explicitly; this synchronous implementation does not claim support for
+unbounded site migrations. The JSON format is versioned (`groovepost-site`, v1)
+and excludes tenant IDs, credentials and raw Payload storage metadata. Reference
+keys are remapped only for exported content; media references stay literal.
 
-Only full supported editorial replacement is documented here. Content-only and
-settings-only template modes are future scope. Customer data, forms/submissions,
-credentials, domains and billing are excluded. See [design authoring](design-agent-kit.md).
+## API and consumers
+
+All routes are under `/api/v1/site-transfers/tenants/{slug}` and require an
+explicit authorized tenant/environment scope for mutations.
+
+| Method/path                                                 | Behavior                                              |
+| ----------------------------------------------------------- | ----------------------------------------------------- |
+| `GET /`                                                     | Destination context and exact confirmation text       |
+| `POST /exports` `{ packageKind: "theme" \| "full" }`        | Returns JSON immediately                              |
+| `POST /imports/preview` `{ document }`                      | Validates JSON and returns counts/digests             |
+| `POST /imports/apply` `{ document, preview, confirmation }` | Atomic replacement; returns previous JSON as `backup` |
+
+SDK `operations.invoke` exposes the same operations. Generic CLI/MCP catalogs
+include `site_json_preview` and `site_json_apply`; removed job/upload-complete,
+restore and download-URL operations are no longer supported.
+
+```sh
+groovepost site export --tenant SITE --environment development --package theme --output theme.json
+groovepost site import --tenant SITE --environment development --package theme --file theme.json
+# After reviewing the returned preview:
+groovepost site import --tenant SITE --environment development --package theme --file theme.json --confirm-destination development:SITE --backup before-import.json
+```
+
+Use `--package full` for Full Site. The CLI never overwrites a backup file.
+Cross-environment copies use export followed by import into the selected
+destination. Old `.tar` transfer files are not accepted by these endpoints.
+
+## Rollout
+
+The old worker callbacks, archive upload/download endpoints and transfer worker
+commands are removed. Retire `GROOVEPOST_SITE_TRANSFER_BUCKET` and
+`GROOVEPOST_SITE_TRANSFER_WORKER_TOKEN` from instance/worker configuration during
+an authorized cutover. Unrelated housekeeping workers remain. Existing transfer
+rows and stored archives are left intact; this change does not delete hosted data
+or run destructive cleanup/migrations. Shared package publication and hosted
+cutover require separate authorization.

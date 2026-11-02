@@ -48,3 +48,5 @@ Never post credentials, private tenant data or implementation code. See SECURITY
 for private security reporting instructions.
 
 See [local packages and promotion](docs/app-packages.md) for the package-based deployment workflow and its current publication/acceptance status.
+
+The current platform candidate replaces worker-based transfers with direct Theme/Full Site JSON export, preview and import. Media references remain unchanged; media files are not transported. See [the JSON transfer contract](docs/site-transfer.md) and its release-status note.
