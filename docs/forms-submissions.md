@@ -82,4 +82,57 @@ hosted apps call `forms.discardDraft` under `forms.drafts`. CLI: `forms draft-di
 
 Forms may declare `emailField` to enable authenticated, verified-contact submission email notifications. See [submission email](submission-email.md). Drafts can explicitly upgrade to the newest installed version at their current revision; previous answers are archived and submitted definitions remain pinned.
 
-The package-deployment candidate serves photo bytes through the authorized API. `getImage` returns an ArrayBuffer; hosted `forms.image` retains that same byte contract. Generic CLI/MCP operation adapters return `{mimeType,dataBase64}`. Storage endpoints and signed storage links are not exposed by these photo operations. This requires the coordinated candidate SDK release.
+The package runtime serves photo bytes through the authorized API. `getImage` returns an ArrayBuffer; hosted `forms.image` retains that same byte contract. Generic CLI/MCP operation adapters return `{mimeType,dataBase64}`. Storage endpoints and signed storage links are not exposed by these photo operations. This contract ships in SDK 0.6.4 and the coordinated toolkit release.
+
+## Form selection in App Builder
+
+Client discovery uses `client.getForms()` (direct SDK) or
+`createHostedClient(api, context).forms.getForms()` (hosted widgets, capability
+`forms.read`). It returns enabled, tenant/environment-scoped forms with stable
+IDs, titles, optional descriptions, versions and validation/attachment requirements.
+Administrator email copy is excluded. Disabled submissions reject discovery;
+existing drafts and submissions retain their pinned form/version.
+
+A custom widget declares a form option and a packaged validation contract:
+
+```json
+{
+  "options": {"type":"object","properties":{"submissionFormId":{"type":"string"}}},
+  "formBindings": [{"option":"submissionFormId","label":"Submission form","required":true,"formId":"offers"}]
+}
+```
+
+Include `offers` in the manifest's `forms` and declare `forms.read` alongside the
+widget's write capabilities. The binding's `formId` identifies the packaged
+**contract**; the selected destination ID lives in each widget instance's
+`options.submissionFormId`. App Builder presents configured compatible forms by
+title, ID and version. No environment variable selects the form. Apps discover
+metadata by the selected ID, then call `forms.createDraft(selectedId)`.
+
+Compatibility conservatively requires equal schema, attachment policy, statuses,
+and email/phone/consent field bindings. Names, IDs, descriptions, versions and
+administrative email copy can differ. This does not infer JSON Schema subtyping.
+Incomplete selections can be saved as drafts; preview/publication and candidate
+activation reject missing or incompatible destinations without replacing the live
+app. Administrative definition changes cannot invalidate a published binding.
+
+Existing manifests may reject new widget options, so existing compositions use
+an explicit operator migration before the new package is uploaded. From the
+platform checkout, prepare reviewed JSON containing `revision` and `selections`
+(`screen`, `widget`, `option`, `formId`). Run the command below against the intended
+Development database; it is a dry run unless `--apply` is supplied:
+
+```sh
+pnpm --filter @groovepost/web exec tsx --env-file=.env src/scripts/migrateFormBindings.ts --tenant example --environment development --package /absolute/path/app.tar.gz --selections /absolute/path/selections.json
+```
+
+Review the mapping, then repeat with `--apply`. The operator tool validates the
+new package and form contracts, locks the tenant, checks the expected revision,
+and adds only previously unbound selections to the saved draft and published
+composition. It preserves pending edits, layout, other options, IDs and submission
+records; stale revisions, conflicting selections or unsupported records stop the
+operation. Repeating an already applied mapping is a no-op with the current
+revision. It does not activate code or create a database schema migration. Upload
+the new package afterward, review its selector and promote separately. Production
+destination forms must also be compatible. Do not import an entire replacement
+layout merely to add a binding.

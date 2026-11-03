@@ -2,19 +2,19 @@
 
 This inventory records the current platform package set. Examples pin these
 versions together and install through authenticated GitHub Packages access.
-The [2026-10-22 production publication](https://github.com/groovepost/platform/actions/runs/39800362027)
+The [2026-11-03 package-only publication](https://github.com/groovepost/platform/actions/runs/41724767273)
 verified immutable archives and a clean registry installation.
 
-| Package                   | Version | Purpose                                              |
-| ------------------------- | ------- | ---------------------------------------------------- |
-| `@groovepost/app-sdk`     | 0.6.2   | REST client, hosted widgets, data/session operations |
-| `@groovepost/app-package` | 0.4.0   | Current app build contracts and tooling              |
-| `@groovepost/ui`          | 0.3.3   | Shared web controls, tenant theming and styles       |
-| `@groovepost/tab-types`   | 0.4.3   | Standard application tab definitions                 |
-| `@groovepost/cli`         | 0.9.4   | Developer login, package upload/promotion and content tools |
-| `@groovepost/mcp`         | 0.7.2   | Explicit REST-backed MCP tools                       |
+| Package                   | Version | Purpose                                                     |
+| ------------------------- | ------- | ----------------------------------------------------------- |
+| `@groovepost/app-sdk`     | 0.6.4   | REST client, hosted widgets, data/session operations        |
+| `@groovepost/app-package` | 0.4.1   | Current app build contracts and tooling                     |
+| `@groovepost/ui`          | 0.3.5   | Shared web controls, tenant theming and styles              |
+| `@groovepost/app-native`  | 0.1.0   | Native tab/Post List rendering                              |
+| `@groovepost/cli`         | 0.9.6   | Developer login, package upload/promotion and content tools |
+| `@groovepost/mcp`         | 0.7.4   | Explicit REST-backed MCP tools                              |
 
-All use GitHub Packages today. UI/tab-types and some CLI features also depend on
+All use GitHub Packages today. UI and some CLI features also depend on
 shared `@danielmarkland` packages there. Configure both scopes. `@groovepost/app-web` is a
 private application package, not a public SDK dependency.
 
@@ -44,15 +44,15 @@ installation and CI checks do not establish hosted customer-flow acceptance.
 
 ## Framework boundaries
 
-The REST client is framework-independent. Hosted widgets, shared web controls and
-standard tab views target the web. Native Expo apps own their native presentation;
-shared web tab views are not React Native components. Upgrading a native app requires
+The REST client is framework-independent. Hosted widgets and shared React controls
+target the web. Native Expo apps use the separate app-native tab/Post List renderer;
+shared web components are not React Native components. Upgrading a native app requires
 checking that boundary as well as updating its package pins and explicit API origin.
 
-The package-deployment candidate serves photo bytes through the authorized API. `getImage` returns an ArrayBuffer; hosted `forms.image` retains that same byte contract. Generic CLI/MCP operation adapters return `{mimeType,dataBase64}`. Storage endpoints and signed storage links are not exposed by these photo operations. This requires the coordinated candidate SDK release.
+The package runtime serves photo bytes through the authorized API. `getImage` returns an ArrayBuffer; hosted `forms.image` retains that same byte contract. Generic CLI/MCP operation adapters return `{mimeType,dataBase64}`. Storage endpoints and signed storage links are not exposed by these photo operations. These contracts are included in the package-only release above.
 
 ## Cleanup candidate
 
-The table and versions.json above record the last verified publication, not the contents of PR #199. The [generated candidate inventory](https://github.com/groovepost/platform/blob/codex/admin-editor-polish/docs/sdk-candidate-versions.json) comes from owning package manifests. Changed archives need newly authorized immutable versions and clean registry installation before consumer pins are updated. Local tarball acceptance is recorded separately.
+The table and versions.json record the verified package-only publication from PR #199. Its source manifests also generate the [platform inventory](https://github.com/groovepost/platform/blob/codex/admin-editor-polish/docs/sdk-candidate-versions.json). Immutable contents and a clean registry consumer installation passed. This releases packages without merging PR #199 or deploying the host. Hosted API/runtime rollout and customer-flow acceptance remain separate gates.
 
-The candidate retires tab-types, defineTabType/createGroovePostApp and the UI root groovePostTheme export. Use canonical App Builder compositions, defineWidget, and tenant settings. Next.js is required only for Next-specific publishing UI entrypoints; basic extension controls do not require the Next peer.
+This release retires tab-types, defineTabType/createGroovePostApp and the UI root groovePostTheme export. Use canonical App Builder compositions, defineWidget, and tenant settings. Next.js is required only for Next-specific publishing UI entrypoints; basic extension controls do not require the Next peer.
