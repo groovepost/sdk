@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Document the opt-in Save Draft Submissions form policy and read-only administrator draft inspection.
+
 - Pin examples and the package inventory to the verified November 3 toolkit publication, including app-native 0.1.0.
 
 - Document client-safe form discovery and per-widget App Builder form selection, including explicit existing-composition migration.

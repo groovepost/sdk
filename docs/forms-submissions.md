@@ -136,3 +136,9 @@ revision. It does not activate code or create a database schema migration. Uploa
 the new package afterward, review its selector and promote separately. Production
 destination forms must also be compatible. Do not import an entire replacement
 layout merely to add a binding.
+
+## Save Draft Submissions (PR #199 follow-up)
+
+A form definition can opt into `saveDraftSubmissions: true`. The Forms editor exposes **Save Draft Submissions** and saves changes as a new immutable form version. The latest version controls admin visibility for all unexpired drafts of that form, including older pinned versions. The default is off. This admin-only policy is omitted from public form discovery.
+
+Enabled drafts appear in Submissions with Draft status and last activity. Administrators may inspect partial answers and authorized photos but cannot review or submit a draft. Viewing a draft sends no submission notification. Customer recovery remains unchanged; expiration and cleanup still occur after 30 days of inactivity. Turning the setting off hides drafts without deleting recovery data. WBUR seller form version 6 enables it.
