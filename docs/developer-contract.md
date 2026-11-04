@@ -90,3 +90,7 @@ are installed automatically.
 Content-addressed hosted `app.js` and `app.css` assets cache publicly for one year with `immutable`; activating a new build changes their digest URLs. Asset reads still enforce the tenant app origin, environment binding, and active output integrity. Authenticated bearer/preview requests, errors, and private customer, draft, photo, and submission endpoints remain `no-store`.
 
 Release conventions and adoption are documented in [builds and releases](releases.md).
+
+## Diagnostic logging candidate
+
+The optional [logging entry point](logging.md) supplies explicit app messages and opt-in browser errors without console interception. It does not collect form answers or establish trusted platform actions. Registry availability remains governed by the package inventory.
