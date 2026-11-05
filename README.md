@@ -15,6 +15,8 @@ example application code and release metadata; it is not an implementation mirro
 
 ## Developer guides
 
+- [Configuration sources](docs/configuration.md): standalone environment inputs and tenant database configuration.
+
 - [Tenant onboarding](docs/onboarding.md), [environments](docs/environments.md) and [app packages](docs/app-packages.md)
 - [App authoring](docs/developer-contract.md), [hosted widgets](docs/hosted-apps.md) and [controls](docs/theming.md)
 - [Authentication](docs/authentication.md), [data](docs/data-and-sessions.md), [forms](docs/forms-submissions.md) and [email](docs/submission-email.md)
@@ -60,3 +62,8 @@ The unpublished configuration-cleanup CLI candidate consolidates project scope
 in a nonsecret binding and site-transfer authentication in its existing account
 login store. See [configuration and rollout](docs/tooling.md#configuration-cleanup-candidate);
 registry examples remain pinned to published versions.
+
+
+### Configuration abstraction candidate
+
+Platform #201 and starter #93 use 25 canonical names: 23 shared and 2 platform-only. Standalone hosts resolve service credentials from server environment variables; GroovePost resolves them from encrypted tenant/environment connections. Shared services receive the same validated configuration. Independent accounts and authentication realms remain separate. Hosted SDK consumers receive public capability/context DTOs, never provider credentials, signing roots or database/storage secrets. Shared submission lifecycle and attachment behavior is owned by publishing packages. These candidates are unpublished; hosted cutover is separate.
