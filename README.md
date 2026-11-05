@@ -63,7 +63,8 @@ in a nonsecret binding and site-transfer authentication in its existing account
 login store. See [configuration and rollout](docs/tooling.md#configuration-cleanup-candidate);
 registry examples remain pinned to published versions.
 
-
 ### Configuration abstraction candidate
 
 Platform #201 and starter #93 use 25 canonical names: 23 shared and 2 platform-only. Standalone hosts resolve service credentials from server environment variables; GroovePost resolves them from encrypted tenant/environment connections. Shared services receive the same validated configuration. Independent accounts and authentication realms remain separate. Hosted SDK consumers receive public capability/context DTOs, never provider credentials, signing roots or database/storage secrets. Shared submission lifecycle and attachment behavior is owned by publishing packages. These candidates are unpublished; hosted cutover is separate.
+
+See [configuration sources](docs/configuration.md) for the server adapters, canonical inventory and client boundary.
