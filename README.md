@@ -55,3 +55,8 @@ The current platform candidate replaces worker-based transfers with direct Theme
 The coordinated cleanup candidate in platform PR #199 generates SDK/CLI/MCP contracts from registered OpenAPI, uses production ES-module extension bundles, and provides a public postal-code lookup. See [candidate package notes](docs/packages.md#cleanup-candidate); the package-only toolkit release is published; hosted cutover remains a separate review step.
 
 - [Optional app diagnostics](docs/logging.md): scoped SDK logging and owner/admin review (source candidate, awaiting coordinated package publication).
+
+The unpublished configuration-cleanup CLI candidate consolidates project scope
+in a nonsecret binding and site-transfer authentication in its existing account
+login store. See [configuration and rollout](docs/tooling.md#configuration-cleanup-candidate);
+registry examples remain pinned to published versions.

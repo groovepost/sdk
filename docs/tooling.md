@@ -33,3 +33,20 @@ MCP is an adapter over supported REST operations; it grants no direct database o
 storage access. A hosted `/mcp` endpoint also requires platform OAuth/provider
 activation and acceptance; package installation does not prove it operational.
 Keep tokens in the MCP client's secret configuration rather than public examples.
+
+## Configuration-cleanup candidate
+
+Unpublished CLI 0.9.7 uses a schema-2 `.groovepost/project.json` binding as the
+shared source of API URL, tenant and environment for scoped commands. Conflicting
+explicit values fail before credentials are loaded. Unbound automation still
+selects all three explicitly. Initial onboarding needs API URL and environment;
+recreate an older binding explicitly with `apps init --tenant SLUG --directory
+PATH --adopt` after reviewing the directory. Server public settings retain their
+existing schema; no credential enters the project binding or public settings.
+
+Site export/import uses the same origin-bound `auth login` store, replacing
+`GROOVEPOST_SITE_CONNECTIONS`. Optional tenant/environment flags must match a
+bound project. Use separate bound directories or explicit unbound commands for
+cross-environment transfers. MCP continues to use its own client configuration;
+this CLI change does not change MCP input or token storage. The install command
+above stays pinned to the verified published release until candidate publication.

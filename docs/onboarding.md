@@ -12,3 +12,9 @@ configuration. The developer CLI's API/tenant/environment selection is local
 operation scope, not another set of hosted frontend environment variables.
 `PACKAGE_READ_TOKEN` belongs only in dependency-installation CI. Registry access,
 source CI and GitHub Pages publishing are independent of app upload/promotion.
+
+The configuration-cleanup CLI candidate resolves project scope from local
+schema-2 bindings and rejects conflicting API, tenant or environment overrides
+before loading origin-bound OAuth credentials. Re-adopt old bindings explicitly;
+see [candidate configuration](tooling.md#configuration-cleanup-candidate). These
+changes are pending CLI publication and do not add hosted frontend settings.
