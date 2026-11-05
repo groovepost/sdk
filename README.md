@@ -23,6 +23,7 @@ example application code and release metadata; it is not an implementation mirro
 
 These are the canonical consumer guides. Operator deployment procedures, credentials,
 database implementation and release evidence stay in the private platform repository.
+Configuration ownership and the offline CLI candidate are documented in [CLI and MCP](docs/tooling.md); hosted apps receive context rather than service credentials.
 Published versions remain governed by `versions.json`; documentation consolidation
 publishes no packages and changes no application behavior.
 

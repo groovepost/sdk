@@ -3,13 +3,18 @@
 Install exact versions through the configured GitHub registry:
 
 ```sh
-npm install --save-dev --save-exact @groovepost/cli@0.9.4
+npm install --save-dev --save-exact @groovepost/cli@0.9.6
 ```
 
 Use project-local scripts or `npx --no-install groovepost` so an unexpected registry
 version is not installed. Configure `GROOVEPOST_API_URL` including `/api/v1`,
 `GROOVEPOST_TENANT` and `GROOVEPOST_ENVIRONMENT` for platform operations. Run
-`groovepost doctor` to diagnose local application configuration.
+the locally installed CLI's supported configuration checks. The unpublished
+configuration-cleanup CLI candidate makes `groovepost doctor` an offline check of
+the explicit `/api/v1` origin, environment, and tenant or local project binding.
+It does not log in, refresh tokens or prove hosted access. Do not add a public
+tenant variable as a runtime requirement to satisfy an older doctor's output.
+Use `auth login` separately for authenticated operations.
 
 `groovepost auth login` uses the platform authorization flow. Ordinary administrator
 or customer credentials retain normal REST permissions. Do not use service-role
@@ -19,7 +24,7 @@ additional shared publishing packages.
 
 ## MCP
 
-`@groovepost/mcp@0.7.2` provides the `groovepost-mcp` stdio binary and explicitly
+`@groovepost/mcp@0.7.4` provides the `groovepost-mcp` stdio binary and explicitly
 registered REST-backed tools. Configure the same API URL, environment and tenant,
 and an ordinary administrator or customer token for the intended scope. Stdout
 is reserved for MCP protocol output.
