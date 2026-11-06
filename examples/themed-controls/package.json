@@ -17,5 +17,10 @@
     "typescript": "7.0.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3"
+  },
+  "overrides": {
+    "@danielmarkland/publishing-contracts": "0.15.0",
+    "@danielmarkland/publishing-core": "0.20.0",
+    "@danielmarkland/publishing-ui": "0.15.0"
   }
 }

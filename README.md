@@ -15,6 +15,8 @@ example application code and release metadata; it is not an implementation mirro
 
 ## Developer guides
 
+- [Configuration sources](docs/configuration.md): standalone environment inputs and tenant database configuration.
+
 - [Tenant onboarding](docs/onboarding.md), [environments](docs/environments.md) and [app packages](docs/app-packages.md)
 - [App authoring](docs/developer-contract.md), [hosted widgets](docs/hosted-apps.md) and [controls](docs/theming.md)
 - [Authentication](docs/authentication.md), [data](docs/data-and-sessions.md), [forms](docs/forms-submissions.md) and [email](docs/submission-email.md)
@@ -23,6 +25,7 @@ example application code and release metadata; it is not an implementation mirro
 
 These are the canonical consumer guides. Operator deployment procedures, credentials,
 database implementation and release evidence stay in the private platform repository.
+Configuration ownership and the offline CLI candidate are documented in [CLI and MCP](docs/tooling.md); hosted apps receive context rather than service credentials.
 Published versions remain governed by `versions.json`; documentation consolidation
 publishes no packages and changes no application behavior.
 
@@ -54,3 +57,14 @@ The current platform candidate replaces worker-based transfers with direct Theme
 The coordinated cleanup candidate in platform PR #199 generates SDK/CLI/MCP contracts from registered OpenAPI, uses production ES-module extension bundles, and provides a public postal-code lookup. See [candidate package notes](docs/packages.md#cleanup-candidate); the package-only toolkit release is published; hosted cutover remains a separate review step.
 
 - [Optional app diagnostics](docs/logging.md): scoped SDK logging and owner/admin review (source candidate, awaiting coordinated package publication).
+
+The unpublished configuration-cleanup CLI candidate consolidates project scope
+in a nonsecret binding and site-transfer authentication in its existing account
+login store. See [configuration and rollout](docs/tooling.md#configuration-cleanup-candidate);
+registry examples remain pinned to published versions.
+
+### Configuration abstraction candidate
+
+Platform #201 and starter #93 use 25 canonical names: 23 shared and 2 platform-only. Standalone hosts resolve service credentials from server environment variables; GroovePost resolves them from encrypted tenant/environment connections. Shared services receive the same validated configuration. Independent accounts and authentication realms remain separate. Hosted SDK consumers receive public capability/context DTOs, never provider credentials, signing roots or database/storage secrets. Shared submission lifecycle and attachment behavior is owned by publishing packages. The shared configuration packages are [published and registry-verified](https://github.com/danielmarkland/expo-payload-starter/actions/runs/42129981675); hosted cutover is separate. Developer tooling candidates remain unpublished where noted.
+
+See [configuration sources](docs/configuration.md) for the server adapters, canonical inventory and client boundary.

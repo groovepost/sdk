@@ -21,5 +21,8 @@
   "devDependencies": {
     "@types/react": "19.2.14",
     "typescript": "5.7.3"
+  },
+  "overrides": {
+    "@danielmarkland/publishing-contracts": "0.15.0"
   }
 }

@@ -34,6 +34,7 @@ export default defineConfig({
           { text: "Forms and submissions", link: "/forms-submissions" },
           { text: "Submission email", link: "/submission-email" },
           { text: "Services", link: "/services" },
+          { text: "Configuration sources", link: "/configuration" },
           { text: "Advertising", link: "/advertising" },
           { text: "Commerce", link: "/commerce" },
           { text: "Design authoring", link: "/design-agent-kit" },

@@ -14,5 +14,9 @@
   "devDependencies": {
     "@groovepost/cli": "0.9.6",
     "typescript": "7.0.2"
+  },
+  "overrides": {
+    "@danielmarkland/publishing-contracts": "0.15.0",
+    "@danielmarkland/publishing-core": "0.20.0"
   }
 }
