@@ -56,3 +56,7 @@ The package runtime serves photo bytes through the authorized API. `getImage` re
 The table and versions.json record the verified package-only publication from PR #199. Its source manifests also generate the [platform inventory](https://github.com/groovepost/platform/blob/codex/admin-editor-polish/docs/sdk-candidate-versions.json). Immutable contents and a clean registry consumer installation passed. This releases packages without merging PR #199 or deploying the host. Hosted API/runtime rollout and customer-flow acceptance remain separate gates.
 
 This release retires tab-types, defineTabType/createGroovePostApp and the UI root groovePostTheme export. Use canonical App Builder compositions, defineWidget, and tenant settings. Next.js is required only for Next-specific publishing UI entrypoints; basic extension controls do not require the Next peer.
+
+## Shared configuration release
+
+The [2026-11-05 package-only publication](https://github.com/danielmarkland/expo-payload-starter/actions/runs/42129981675) released publishing-contracts 0.15.0, publishing-core 0.20.0, publishing-ui 0.15.0, auth-runtime 0.3.0. `versions.json` records its source and versions separately from the developer package release above. Examples pin applicable shared transitive dependencies with npm overrides; no unpublished developer SDK or CLI version is required.

@@ -12,5 +12,16 @@
   },
   "verifiedAt": "2026-11-03",
   "sourceCommit": "6f9071c09a3c8fe8426dff14b1f3cde709f4712a",
-  "publicationRun": "https://github.com/groovepost/platform/actions/runs/41724767273"
+  "publicationRun": "https://github.com/groovepost/platform/actions/runs/41724767273",
+  "sharedRelease": {
+    "verifiedAt": "2026-11-05",
+    "sourceCommit": "7249cfc1a8ef4f9cada51034ec9a5f2b32f0c03c",
+    "publicationRun": "https://github.com/danielmarkland/expo-payload-starter/actions/runs/42129981675",
+    "packages": {
+      "@danielmarkland/publishing-contracts": "0.15.0",
+      "@danielmarkland/publishing-core": "0.20.0",
+      "@danielmarkland/publishing-ui": "0.15.0",
+      "@danielmarkland/auth-runtime": "0.3.0"
+    }
+  }
 }
