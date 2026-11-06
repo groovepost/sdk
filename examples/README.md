@@ -10,3 +10,5 @@ Configure the two registry scopes and package-read authentication as described i
 Every example pins verified GitHub Packages releases. No platform checkout is
 required. Live API calls need configured tenant access; local tests/builds do not
 prove hosted acceptance. Do not commit .env files or package tokens.
+
+- [Native Post List](native-post-list/README.md): Expo consumer of the published App Builder composition, using the verified app-native package. Physical-device acceptance remains separate.

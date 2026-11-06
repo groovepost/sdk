@@ -20,7 +20,7 @@ composer and widget runtime. See [the current app model](hosted-apps.md).
 - Shared controls should provide tenant theming, accessibility, loading/error
   states and standard interaction analytics by default. Custom controls can use
   the same public theme tokens and supported analytics operations.
-- Groovepost supplies authentication, persistence, uploads and repository-based app
+- Groovepost supplies authentication, persistence, uploads and package-based app
   deployment through supported REST services, SDK, CLI and MCP adapters. Widgets
   execute trusted code in the app document. Named capabilities and
   server-side tenant/customer authorization restrict service operations; they do
@@ -90,3 +90,7 @@ are installed automatically.
 Content-addressed hosted `app.js` and `app.css` assets cache publicly for one year with `immutable`; activating a new build changes their digest URLs. Asset reads still enforce the tenant app origin, environment binding, and active output integrity. Authenticated bearer/preview requests, errors, and private customer, draft, photo, and submission endpoints remain `no-store`.
 
 Release conventions and adoption are documented in [builds and releases](releases.md).
+
+## Diagnostic logging candidate
+
+The optional [logging entry point](logging.md) supplies explicit app messages and opt-in browser errors without console interception. It does not collect form answers or establish trusted platform actions. Registry availability remains governed by the package inventory.

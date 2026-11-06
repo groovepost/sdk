@@ -9,13 +9,13 @@ example application code and release metadata; it is not an implementation mirro
 - [Getting started](docs/getting-started.md): registry access, installation and first API call.
 - [Package inventory](docs/packages.md): current versions and responsibilities.
 - [Component architecture](docs/architecture.md): shared components and tenant customization.
-- [Examples](examples/README.md): REST client, hosted screen, and themed React controls.
+- [Examples](examples/README.md): REST client, hosted screen, themed React controls and the native Post List consumer.
 - [Release process](docs/releases.md): versions, compatibility and registry limitations.
 - [Troubleshooting](docs/troubleshooting.md) and [support](CONTRIBUTING.md).
 
 ## Developer guides
 
-- [Tenant onboarding](docs/onboarding.md), [environments](docs/environments.md) and [repository builds](docs/repository-builds.md)
+- [Tenant onboarding](docs/onboarding.md), [environments](docs/environments.md) and [app packages](docs/app-packages.md)
 - [App authoring](docs/developer-contract.md), [hosted widgets](docs/hosted-apps.md) and [controls](docs/theming.md)
 - [Authentication](docs/authentication.md), [data](docs/data-and-sessions.md), [forms](docs/forms-submissions.md) and [email](docs/submission-email.md)
 - [Services](docs/services.md), [commerce](docs/commerce.md) and [advertising](docs/advertising.md)
@@ -47,4 +47,10 @@ Use issues for reproducible SDK integration problems and documentation correctio
 Never post credentials, private tenant data or implementation code. See SECURITY.md
 for private security reporting instructions.
 
-See [repository setup and builds](docs/repository-builds.md) for the repository-based deployment workflow and its current publication/acceptance status.
+See [local packages and promotion](docs/app-packages.md) for the package-based deployment workflow and its current publication/acceptance status.
+
+The current platform candidate replaces worker-based transfers with direct Theme/Full Site JSON export, preview and import. Media references remain unchanged; media files are not transported. See [the JSON transfer contract](docs/site-transfer.md) and its release-status note.
+
+The coordinated cleanup candidate in platform PR #199 generates SDK/CLI/MCP contracts from registered OpenAPI, uses production ES-module extension bundles, and provides a public postal-code lookup. See [candidate package notes](docs/packages.md#cleanup-candidate); the package-only toolkit release is published; hosted cutover remains a separate review step.
+
+- [Optional app diagnostics](docs/logging.md): scoped SDK logging and owner/admin review (source candidate, awaiting coordinated package publication).

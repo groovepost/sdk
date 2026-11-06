@@ -1,8 +1,8 @@
 # Builds and releases
 
-An app release is a fresh build of the selected repository branch. Development can deploy automatically after a branch push. Production deploys only when an administrator starts a build. Merging production's branch does not deploy the app. There is no scheduling or cron.
+Development uploads activate validated code independently of composition. Import package defaults only after reviewing their replacement, publish the saved layout, then test the running app. Explicit promotion atomically copies the current package and published Development layout to Production, excluding drafts and environment-specific data/services.
 
-See [repository builds](repository-builds.md) for setup and verification. Build history records commit, branch, actor, status, checksum and CI logs. A failed or superseded build leaves the current deployment intact. Historical archives are not a release catalog; recover by reverting source and rebuilding.
+See [app packages](app-packages.md). Only current Development and Production bytes remain; lightweight operation metadata supports diagnostics. Failed or stale requests preserve the current app. Recovery means fixing source, building locally, uploading to Development and promoting after validation.
 
 SDK library versions are separate: install exact published SDK/CLI versions and commit the lockfile. A successful package publication or app CI run alone does not prove hosted customer-flow acceptance. Verify configured external services before claiming them complete.
 

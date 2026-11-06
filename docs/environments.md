@@ -20,10 +20,7 @@ supported. Configured registry keys are supported; do not assume only two keys.
 Hostname-bound requests stay in that hostname's resource environment regardless of
 caller headers. The admin tenant/environment selector updates the same context.
 
-A tenant environment selects a repository branch and approved external origins.
-Eligible development branches can build automatically; production builds are
-always manual. Recovery uses Git revert and rebuild. Editorial content transfer
-is separate from app deployment and does not copy credentials or customer data.
+Development accepts validated packages and editable composition. Production receives the exact current Development package and published layout through explicit promotion. Runtime origins, credentials, content and customer data remain environment-specific. Editorial transfer remains a separate operation.
 
-See [onboarding](onboarding.md), [repository builds](repository-builds.md),
+See [onboarding](onboarding.md), [app packages](app-packages.md),
 [authentication](authentication.md), and [site transfer](site-transfer.md).

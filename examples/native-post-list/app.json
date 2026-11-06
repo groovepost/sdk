@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "GroovePost Post List",
+    "slug": "groovepost-post-list",
+    "version": "0.1.0",
+    "ios": {
+      "bundleIdentifier": "net.groovepost.postlist.reference"
+    },
+    "android": {
+      "package": "net.groovepost.postlist.reference"
+    }
+  }
+}

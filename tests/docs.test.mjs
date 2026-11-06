@@ -3,7 +3,12 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 const versions = JSON.parse(readFileSync("versions.json"));
-const examples = ["rest-client", "countdown-screen", "themed-controls"];
+const examples = [
+  "rest-client",
+  "countdown-screen",
+  "themed-controls",
+  "native-post-list",
+];
 test("examples use exact SDK versions without private workspace links", () => {
   for (const example of examples) {
     const p = JSON.parse(readFileSync(`examples/${example}/package.json`));
@@ -37,7 +42,9 @@ test("local Markdown links resolve to committed documentation", () => {
       const target = match[1].split("#")[0];
       if (!target || /^(https?:|mailto:)/.test(target)) continue;
       assert.ok(
-        existsSync(resolve(dirname(file), target)) || (target.startsWith("/") && existsSync(resolve("docs/public",target.slice(1)))),
+        existsSync(resolve(dirname(file), target)) ||
+          (target.startsWith("/") &&
+            existsSync(resolve("docs/public", target.slice(1)))),
         `${file}: broken link ${target}`,
       );
     }

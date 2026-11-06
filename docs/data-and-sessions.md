@@ -27,7 +27,7 @@ object alone does not save it.
 
 ## Declare custom collections
 
-Add `dataCollections` to a repository app manifest:
+Add `dataCollections` to a app package manifest:
 
 ```json
 {
@@ -47,7 +47,7 @@ Add `dataCollections` to a repository app manifest:
 ```
 
 This is an excerpt, not a complete app manifest. The server validates declarations
-from the active repository build, never a caller-supplied schema or access policy.
+from the current validated package, never a caller-supplied schema or access policy.
 
 `customer` collections are private to the customer session and follow its supported
 identity and ownership-recovery flow. Phone verification is required only when
