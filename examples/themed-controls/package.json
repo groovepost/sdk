@@ -8,7 +8,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@groovepost/ui": "0.3.5",
+    "@groovepost/ui": "0.3.6",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },

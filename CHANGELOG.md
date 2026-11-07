@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Consolidate site-design guidance and agent workflows in the SDK; add CLI/MCP and generated operation references.
+- Refresh registry pins and example locks, validate native examples, correct released-feature status and restore documentation deployment checks.
+- Update the documentation Vite override to patched 6.4.5.
+
 - Document the opt-in Save Draft Submissions form policy and read-only administrator draft inspection.
 
 - Pin examples and the package inventory to the verified November 3 toolkit publication, including app-native 0.1.0.

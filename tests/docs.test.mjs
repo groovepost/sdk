@@ -67,3 +67,25 @@ test("example registry config and lockfile URLs contain no credentials", () => {
     }
   }
 });
+
+test("documented package pins agree with the release inventory", () => {
+  const files = ["README.md", ...readdirSync("docs").filter(name => name.endsWith(".md")).map(name => `docs/${name}`)];
+  for (const file of files) {
+    for (const match of readFileSync(file, "utf8").matchAll(/(@groovepost\/[a-z-]+)@(\d+\.\d+\.\d+)/g))
+      assert.equal(match[2], versions.packages[match[1]], `${file}: stale package pin`);
+  }
+  const inventory = readFileSync("docs/packages.md", "utf8");
+  for (const [name, version] of Object.entries(versions.packages)) {
+    const row = inventory.split("\n").find(line => line.includes("`" + name + "`"));
+    assert.ok(row, name + " missing from package table");
+    assert.equal(row.split("|")[2].trim(), version, name + " has stale table version");
+  }
+  const operations = JSON.parse(readFileSync("docs/public/operations.json"));
+  const tools = JSON.parse(readFileSync("docs/public/mcp-tools.json"));
+  assert.ok(operations.length > 0);
+  for (const operation of operations) {
+    const tool = tools.find(tool => tool.name === operation.mcp);
+    assert.ok(tool, `${operation.name}: missing MCP tool`);
+    assert.deepEqual(tool.inputSchema, operation.inputSchema);
+  }
+});

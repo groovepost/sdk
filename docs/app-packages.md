@@ -1,6 +1,7 @@
 # Local packages and Production promotion
 
-This is the package-based App Builder candidate coordinated with platform PR #199. Use its source CLI for validation until the changed packages have been released; registry pins must be verified before adoption.
+Use the [verified CLI release](packages.md) for local builds and validation.
+Uploads and promotion require the matching configured host and owner/admin access.
 
 ```sh
 groovepost auth login
@@ -17,10 +18,10 @@ The archive includes manifest, minified production ES-module JavaScript/styles a
 
 In Development App Builder, import package layout defaults explicitly if wanted. Save Draft, Preview and Publish are separate from uploading code. Built-in Post List apps need no package. Later uploads preserve compatible admin composition and reject missing/changed widgets with actionable errors.
 
-`groovepost apps promote` copies the exact current Development package and published layout to Production after confirmation and revision checks. Draft changes, content, media, credentials and service configuration are excluded. Configure Production origins and required services independently. Direct Production upload and layout writes are rejected. Failure preserves the current app; successful retries are idempotent. Only current Development/Production package bytes are retained.
+`groovepost apps promote` copies the exact current Development package and published layout to Production after explicit operator authorization and revision checks. Draft changes, content, media, credentials and service configuration are excluded. Configure Production origins and required services independently. Direct Production upload and layout writes are rejected. Failure preserves the current app; successful retries are idempotent. Only current Development/Production package bytes are retained.
 
-No repository connection, GitHub App, deployment branch or custom Action is required. Ordinary source hosting, CI and package registry credentials remain unrelated. Existing hosted build integrations retire only after a separately authorized cutover; this candidate does not delete hosted state.
+No repository connection, GitHub App, deployment branch or custom Action is required. Ordinary source hosting, CI and package registry credentials remain unrelated. Source hosting and registry access remain separate from the app upload workflow.
 
-SDK `createDeploymentOperations` covers summaries, runtime settings and promotion. The authenticated operation catalog exposes upload admission, byte upload and completion to SDK, CLI and MCP; scoped mutations require tenant and environment. See the [platform contract](https://github.com/groovepost/platform/blob/codex/admin-editor-polish/docs/app-packages.md) for the candidate API and limits.
+SDK `createDeploymentOperations` covers summaries, runtime settings and promotion. The authenticated operation catalog exposes upload admission, byte upload and completion to SDK, CLI and MCP; scoped mutations require tenant and environment. See the [platform contract](https://github.com/groovepost/platform/blob/main/docs/app-packages.md) for the API and limits.
 
-The cleanup candidate replaces global/IIFE packages; rebuild extensions with the coordinated CLI. Existing hosted artifacts are unchanged until an authorized cutover. Public postal suggestions are available through `client.reference.postalCodeUS(zip)` (including the hosted client), with editable city/state choices and manual entry on failure.
+Current builds use ES modules instead of global/IIFE packages; rebuild extensions with the verified CLI. Previously built IIFE artifacts must be rebuilt before use with this runtime. Public postal suggestions are available through `client.reference.postalCodeUS(zip)` (including the hosted client), with editable city/state choices and manual entry on failure.

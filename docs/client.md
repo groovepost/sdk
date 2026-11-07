@@ -43,21 +43,21 @@ See [authentication](authentication.md), [data](data-and-sessions.md) and
 
 `client.reference.postalCodeUS("02108")` uses the public cacheable `GET /api/v1/reference/postal-codes/us/{zip}` endpoint. It returns `{country:"US",postalCode,places:[{city,state}]}`; unknown ZIPs return an empty list and malformed ZIPs are rejected. The hosted client exposes the same operation without customer authentication. These are suggestions, not address verification; keep manual entry available.
 
-## Candidate: lightweight runtime and separate discovery
+## Lightweight runtime and separate discovery
 
-The coordinated PR #199 candidate keeps `api.operations.invoke(name, input)` in
+The published SDK keeps `api.operations.invoke(name, input)` in
 `@groovepost/app-sdk`. Import full schemas and CLI/MCP tool metadata separately:
 
 ```ts
 import { operationCatalog } from "@groovepost/app-sdk/operations";
 ```
 
-The candidate removes the root `operationCatalog` export and client-bound
+The current SDK removes the root `operationCatalog` export and client-bound
 `operations.list()`. Update discovery consumers together; browser/native apps
 should use only the runtime entry point. The generated compact invocation map
 and full catalog share the reviewed OpenAPI exposure inventory. Runtime clients
 reuse one transport while retaining injected fetch, current customer tokens,
 explicit mutation environments, binary responses and structured errors.
 
-This API change is a source candidate, not a statement of registry availability.
-Package publication and exact consumer-pin updates require the release gate.
+These entry points are available in the [verified package set](packages.md).
+See the [operation reference](operations.md) for names, permissions and input schemas.

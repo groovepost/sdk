@@ -7,16 +7,19 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "node scripts/build-docs.mjs",
     "docs:preview": "vitepress preview docs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "reference:generate": "node scripts/reference.mjs",
+    "reference:check": "node scripts/reference.mjs --check",
+    "docs:verify": "node scripts/check-built-docs.mjs"
   },
   "devDependencies": {
     "vitepress": "1.6.4"
   },
   "overrides": {
     "vitepress": {
-      "vite": "6.4.3"
+      "vite": "6.4.5"
     }
   }
 }

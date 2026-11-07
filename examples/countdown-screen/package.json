@@ -9,10 +9,10 @@
     "build": "groovepost apps build manifest.json dist/app.tar.gz"
   },
   "dependencies": {
-    "@groovepost/app-sdk": "0.6.4"
+    "@groovepost/app-sdk": "0.6.6"
   },
   "devDependencies": {
-    "@groovepost/cli": "0.9.6",
+    "@groovepost/cli": "0.9.7",
     "typescript": "7.0.2"
   },
   "overrides": {
