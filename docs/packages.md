@@ -66,14 +66,14 @@ The [2026-11-05 package-only publication](https://github.com/danielmarkland/expo
 ## Dependency audit status
 
 On November 7, 2026, `npm audit` reports no vulnerabilities in the documentation
-build or REST example. The published CLI/countdown and controls dependency trees
-still report a critical DOMPurify advisory and high-severity transitive advisories;
-the native example also reports high-severity transitives. These are not resolved
-by the documentation build’s patched Vite 6.4.5 override.
+build or REST example. The documentation build uses patched Vite 6.4.5. The countdown
+and controls examples override DOMPurify to patch release 3.4.17, removing their
+critical advisory; the native lockfile refresh removes its high-severity findings.
 
-Affected published dependency chains include publishing-core → Payload/Lexical,
-CLI → Vite, and app-package → Zod. Remediation requires reviewed changes and
-new releases from the owning package repositories, followed by clean consumer
-installation and compatibility checks. This documentation update does not claim
-those packages are vulnerability-free or silently force incompatible transitive upgrades.
+The published CLI/countdown and controls dependency trees still report high-severity
+transitive advisories, while the native example retains moderate advisories. Affected
+chains include publishing-core → Payload/Lexical, CLI → Vite, and app-package → Zod.
+Further remediation requires reviewed changes and new releases from the owning package
+repositories, followed by clean consumer installation and compatibility checks. This
+update does not claim those packages are vulnerability-free or force incompatible upgrades.
 Run `npm audit` in the exact example directory for current advisory details.

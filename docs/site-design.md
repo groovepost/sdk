@@ -48,7 +48,7 @@ controls:
 | -------------- | ------------------------------------------- | ------------------------------------------------------------------------------ |
 | Default mode   | System, light, dark                         | Initial appearance when the visitor has no saved preference.                   |
 | Visitor toggle | Allowed or hidden                           | Whether visitors may override the default; choices persist per browser/device. |
-| Font preset    | System, Poppins, Inter, IBM Plex Mono                        | Runtime font family for both web and app.                                      |
+| Font preset    | System, Poppins, Inter, IBM Plex Mono                        | Runtime web fonts; heading/body/label choices are independent.                                      |
 | Shape preset   | Square, soft, rounded                       | Scales non-pill radii to `0`, `1`, or `1.5` times the packaged values.         |
 | Button shape   | Square, soft, rounded, pill                 | Controls public action corners independently; square is the default.           |
 | Density preset | Compact, comfortable, spacious              | Scales the spacing system to `0.8`, `1`, or `1.2` times the packaged values.   |
@@ -286,3 +286,17 @@ use disclosure or visible rows; CTAs can use bordered containers or full-width b
 Headers support social/accent links and standard/minimal modes. Footer content areas use
 one to four columns with reusable blocks. Match the installed kit’s exact fields; it can
 expose a narrower authoring subset than the running host. Never invent unsupported fields.
+
+## Agent prompt: apply an approved design
+
+```text
+Apply [approved design] to [tenant] in Development using supported CMS/API operations.
+Read https://github.com/groovepost/sdk/blob/main/docs/site-design.md and the installed
+versioned design kit first. Map every section to supported blocks and fields.
+Do not invent fields, media IDs, custom components or a way to import offline tar
+archives through the JSON API. Report capability gaps before changing the design.
+Preserve unrelated editorial records. Preview replacement imports and save a backup
+before applying; confirm the exact destination. Keep publication and Production
+changes pending explicit approval. Compare the actual renderer at desktop/mobile
+sizes and in light/dark modes, and report all remaining differences.
+```

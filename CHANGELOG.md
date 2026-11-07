@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Patch DOMPurify in the countdown/controls examples, refresh compatible native transitives and document remaining dependency advisories.
+
 - Consolidate site-design guidance and agent workflows in the SDK; add CLI/MCP and generated operation references.
 - Refresh registry pins and example locks, validate native examples, correct released-feature status and restore documentation deployment checks.
 - Update the documentation Vite override to patched 6.4.5.
