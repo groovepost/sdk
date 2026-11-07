@@ -23,6 +23,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run docs:build
+      - run: npm run docs:verify
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -36,3 +37,17 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/checkout@v4
+      - name: Verify published commit and required pages
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if node scripts/check-built-docs.mjs "$DOCS_URL"; then exit 0; fi
+            sleep 10
+          done
+          exit 1
+        env:
+          DOCS_URL: ${{ steps.deployment.outputs.page_url }}
+          DOCS_REVISION: ${{ github.sha }}

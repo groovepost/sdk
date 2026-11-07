@@ -3,16 +3,14 @@
   "registry": "https://npm.pkg.github.com",
   "requiresReadAuthentication": true,
   "packages": {
-    "@groovepost/app-sdk": "0.6.4",
+    "@groovepost/app-sdk": "0.6.6",
     "@groovepost/app-package": "0.4.1",
-    "@groovepost/ui": "0.3.5",
-    "@groovepost/cli": "0.9.6",
-    "@groovepost/mcp": "0.7.4",
-    "@groovepost/app-native": "0.1.0"
+    "@groovepost/ui": "0.3.6",
+    "@groovepost/cli": "0.9.7",
+    "@groovepost/mcp": "0.7.5",
+    "@groovepost/app-native": "0.1.1"
   },
-  "verifiedAt": "2026-11-03",
-  "sourceCommit": "6f9071c09a3c8fe8426dff14b1f3cde709f4712a",
-  "publicationRun": "https://github.com/groovepost/platform/actions/runs/41724767273",
+  "verifiedAt": "2026-11-07",
   "sharedRelease": {
     "verifiedAt": "2026-11-05",
     "sourceCommit": "7249cfc1a8ef4f9cada51034ec9a5f2b32f0c03c",
@@ -23,5 +21,6 @@
       "@danielmarkland/publishing-ui": "0.15.0",
       "@danielmarkland/auth-runtime": "0.3.0"
     }
-  }
+  },
+  "verification": "Authenticated registry metadata and clean installation of every listed package"
 }

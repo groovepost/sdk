@@ -1,6 +1,7 @@
 # App diagnostics
 
-> Source candidate for platform PR #199. Verify the logging export and operation names in your installed package before using this guide. No new logging package versions have been published for this change.
+> Available in the [verified package set](packages.md). Hosted collection and review
+> require the matching platform API and environment permissions.
 
 Logging is optional. It works without a repository connection or customer sign-in and does not change ordinary console behavior.
 

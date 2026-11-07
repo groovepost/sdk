@@ -1,4 +1,4 @@
-# Design agent kit
+# Versioned design agent kit
 
 > These guides describe the current supported contracts. The [package inventory](packages.md)
 > records verified published versions; newer source changes do not imply package publication
@@ -30,10 +30,14 @@ viewport sizes, field mappings, assumptions and remaining differences. Validate
 structural compatibility, then compare desktop/mobile captures of the actual
 imported renderer. Packaging does not certify client approval.
 
-Imports replace the full supported editorial site; they are not targeted settings
-updates. First use a disposable development tenant, review removed/replaced counts,
+Offline archives produced by `site pack` are authoring artifacts, not inputs to the
+JSON Import / Export API. To apply supported JSON, use a running site export and the
+[JSON transfer workflow](site-transfer.md): Theme changes visual settings; Full Site
+replaces supported editorial content. First use a disposable development tenant, review removed/replaced counts,
 then confirm the exact destination. Production application requires separate
 approval. [Site transfer](site-transfer.md) explains execution prerequisites.
 
 See [practical layouts](site-layouts.md) for reusable publishing controls. Contact
 and newsletter presentation does not configure delivery; use [services](services.md).
+
+For design briefs, supported theme/block choices and agent prompts, start with [Design a site](site-design.md).

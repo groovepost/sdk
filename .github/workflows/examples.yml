@@ -1,16 +1,18 @@
 name: Authenticated registry examples
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
   pull_request:
 permissions:
   contents: read
 jobs:
   examples:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        example: [rest-client, countdown-screen, themed-controls]
+        example: [rest-client, countdown-screen, themed-controls, native-post-list]
     defaults:
       run:
         working-directory: examples/${{ matrix.example }}
@@ -30,3 +32,20 @@ jobs:
       - run: npm test --if-present
       - run: npm run build --if-present
       - run: npm run package --if-present
+  reference:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Configure package-read authentication
+        run: |
+          test -n "$PACKAGE_READ_TOKEN"
+          npm config set @groovepost:registry https://npm.pkg.github.com --location=user
+          npm config set @danielmarkland:registry https://npm.pkg.github.com --location=user
+          npm config set //npm.pkg.github.com/:_authToken "$PACKAGE_READ_TOKEN" --location=user
+        env:
+          PACKAGE_READ_TOKEN: ${{ secrets.PACKAGE_READ_TOKEN }}
+      - run: npm run reference:check

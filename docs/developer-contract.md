@@ -91,6 +91,6 @@ Content-addressed hosted `app.js` and `app.css` assets cache publicly for one ye
 
 Release conventions and adoption are documented in [builds and releases](releases.md).
 
-## Diagnostic logging candidate
+## Diagnostic logging
 
 The optional [logging entry point](logging.md) supplies explicit app messages and opt-in browser errors without console interception. It does not collect form answers or establish trusted platform actions. Registry availability remains governed by the package inventory.

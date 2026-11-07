@@ -1,6 +1,8 @@
 # JSON Import / Export
 
-These contracts are implemented in the current platform PR #199 candidate. Shared package source changes are local previews, not a published release. Consult the selected environment’s authenticated API docs and installed package declarations before using the new operations.
+These contracts are implemented in the platform and exposed by the [verified toolkit](packages.md).
+Check the selected environment’s authenticated API docs before applying a transfer.
+Offline design-kit archives are separate authoring artifacts and are not accepted by this JSON API.
 
 Import / Export is an immediate, authenticated owner/admin API workflow. It needs
 no transfer worker, archive bucket, signed storage URL or scheduled job.

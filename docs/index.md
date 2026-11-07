@@ -4,6 +4,10 @@ Use shared platform services and themed controls to build independent tenant app
 Your app lives in its own repository and consumes released packages. No private
 platform checkout is required.
 
+For design work, start with [Design a site](site-design.md); agents can use the
+[agent quickstart](agents.md). See the [CLI](cli.md), [MCP](mcp.md) and
+[operation reference](operations.md) for tooling.
+
 Start with [installation](./getting-started.md), choose a [package](./packages.md),
 then run an [example](./examples.md).
 
