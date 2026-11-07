@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Refresh documentation, example and Pages workflows to current GitHub Actions releases.
+
 - Patch DOMPurify in the countdown/controls examples, refresh compatible native transitives and document remaining dependency advisories.
 
 - Consolidate site-design guidance and agent workflows in the SDK; add CLI/MCP and generated operation references.
