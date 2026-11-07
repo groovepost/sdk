@@ -107,6 +107,6 @@ Successful API commands emit JSON to stdout; failures normally emit structured J
 to stderr and exit 1. `doctor`, help, and design/site authoring commands may emit text;
 design/site failures may also be plain text. Success exits 0. Parse according to the
 command, inspect the exit status and never treat arbitrary stdout as proof of deployment.
-API errors preserve available status/code/message/request correlation. Validation,
+API errors expose status, code and message where available; SDK request correlation is documented separately. Validation,
 401/403 authorization, 409 revision conflicts and ambiguous network failures need
 different recovery; do not automatically retry destructive or externally visible operations.
