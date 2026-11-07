@@ -21,6 +21,7 @@
   "overrides": {
     "@danielmarkland/publishing-contracts": "0.15.0",
     "@danielmarkland/publishing-core": "0.20.0",
-    "@danielmarkland/publishing-ui": "0.15.0"
+    "@danielmarkland/publishing-ui": "0.15.0",
+    "dompurify": "3.4.17"
   }
 }
