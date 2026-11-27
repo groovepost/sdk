@@ -5924,5 +5924,22 @@
       ],
       "additionalProperties": false
     }
+  },
+  {
+    "name": "get_brand_reference",
+    "method": "GET",
+    "path": "/brand-reference",
+    "permission": "public",
+    "scopeTenant": false,
+    "binary": false,
+    "sdk": "operations.invoke",
+    "cli": "api get_brand_reference",
+    "mcp": "api_get_brand_reference",
+    "inputSchema": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    }
   }
 ]

@@ -2,17 +2,17 @@
 
 This inventory records the last verified platform package set in `versions.json`, not a live registry listing. Verify a required newer version before installing it. Examples pin these
 versions together and install through authenticated GitHub Packages access.
-Authenticated registry metadata and clean installations were verified on November 7, 2026.
-See `versions.json` for the reviewed package set.
+Authenticated registry metadata and clean installations were verified on November 27, 2026.
+See `versions.json` for the reviewed package set and [package-only publication evidence](https://github.com/groovepost/platform/actions/runs/46074175578).
 
 | Package                   | Version | Purpose                                                     |
 | ------------------------- | ------- | ----------------------------------------------------------- |
-| `@groovepost/app-sdk`     | 0.6.6   | REST client, hosted widgets, data/session operations        |
+| `@groovepost/app-sdk`     | 0.6.8   | REST client, hosted widgets, data/session operations        |
 | `@groovepost/app-package` | 0.4.1   | Current app build contracts and tooling                     |
-| `@groovepost/ui`          | 0.3.6   | Shared web controls, tenant theming and styles              |
-| `@groovepost/app-native`  | 0.1.1   | Native tab/Post List rendering                              |
-| `@groovepost/cli`         | 0.9.7   | Developer login, package upload/promotion and content tools |
-| `@groovepost/mcp`         | 0.7.5   | Explicit REST-backed MCP tools                              |
+| `@groovepost/ui`          | 0.3.9   | Shared web controls, tenant theming and styles              |
+| `@groovepost/app-native`  | 0.1.3   | Native tab/Post List rendering                              |
+| `@groovepost/cli`         | 0.9.13  | Developer login, package upload/promotion and content tools |
+| `@groovepost/mcp`         | 0.7.7   | Explicit REST-backed MCP tools                              |
 
 All use GitHub Packages today. UI and some CLI features also depend on
 shared `@danielmarkland` packages there. Configure both scopes. `@groovepost/app-web` is a
@@ -65,7 +65,7 @@ The [2026-11-05 package-only publication](https://github.com/danielmarkland/expo
 
 ## Dependency audit status
 
-On November 7, 2026, `npm audit` reports no vulnerabilities in the documentation
+On November 27, 2026, `npm audit` reports no vulnerabilities in the documentation
 build or REST example. The documentation build uses patched Vite 6.4.5. The countdown
 and controls examples override DOMPurify to patch release 3.4.17, removing their
 critical advisory; the native lockfile refresh removes its high-severity findings.
@@ -77,3 +77,14 @@ Further remediation requires reviewed changes and new releases from the owning p
 repositories, followed by clean consumer installation and compatibility checks. This
 update does not claim those packages are vulnerability-free or force incompatible upgrades.
 Run `npm audit` in the exact example directory for current advisory details.
+
+## CLI design guidance correction
+
+CLI **0.9.13** ships the corrected design kit guidance. Re-export into a new
+directory with `groovepost design-kit export --output NEW_DIRECTORY`; existing
+exports are not rewritten. Read kit version and exact renderer compatibility from
+that export’s `capabilities.json`. Offline `.tar` archives are authoring artifacts,
+not inputs to the running JSON Import / Export API. The renderer reference now
+includes supported hero variants and post selection. No runtime API migration is
+required for this guidance-only CLI patch. Package publication does not deploy a
+site or authorize managed-content changes.

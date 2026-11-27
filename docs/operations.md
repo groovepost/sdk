@@ -1,6 +1,6 @@
 # Operation and MCP tool reference
 
-Generated from published SDK 0.6.6 and MCP 0.7.5. Do not edit by hand.
+Generated from published SDK 0.6.8 and MCP 0.7.7. Do not edit by hand.
 Run `npm run reference:generate` with registry read access to refresh.
 
 [Operation schemas](/operations.json) and [stdio MCP tool schemas](/mcp-tools.json)
@@ -149,6 +149,7 @@ Tenant-scoped operations require a selected tenant/environment; mutation authori
 | `platform_logs_get` | `GET /platform/logs/{id}` | platform-admin | Not inferred | `api_platform_logs_get` |
 | `get_services_slug_identity_origins` | `GET /services/{slug}/identity-origins` | owner-or-admin | Required | `api_get_services_slug_identity_origins` |
 | `put_services_slug_identity_origins` | `PUT /services/{slug}/identity-origins` | owner-or-admin | Required | `api_put_services_slug_identity_origins` |
+| `get_brand_reference` | `GET /brand-reference` | public | Not inferred | `api_get_brand_reference` |
 
 ## Additional stdio MCP tools
 
