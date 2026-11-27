@@ -19,10 +19,13 @@ packing. The exported `START-HERE.md`, `AUTHORING.md`, `RENDERER.md`,
 platform checkout or personal skill is required. Read all four before promising
 a design; the installed kit's capabilities define supported fields and behavior.
 
-The current source kit is 2.0.0, using footer content areas/columns/blocks and
-editable logo dimensions. Use the kit shipped with your installed CLI and matching
-host renderer; package versions and kit versions are separate. Do not treat a newer
-source snapshot as registry-publication evidence.
+Read `kitVersion` and exact renderer/package compatibility from the installed
+kit's `capabilities.json`. Use the kit shipped with that CLI and a matching host
+renderer; package versions and kit versions are separate. Source snapshots and
+historical package inventories do not establish what is published or deployed.
+Verify required versions in the authenticated registry before installing them.
+Local mocks may render with the shared publishing packages without importing
+content. Honor the client's approval checkpoint before any managed-content write.
 
 Supply `site.json`, original checksum-addressed assets and separate `design.json`
 review metadata. Record faithful recreation versus modernization, source provenance,
