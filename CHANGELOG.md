@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Release corrected CLI 0.9.13 design guidance: use the installed manifest for versions, describe supported hero/post layouts, and distinguish offline authoring archives from JSON import. Refresh the verified toolkit inventory, example pins and generated references.
+
 - Refresh documentation, example and Pages workflows to current GitHub Actions releases.
 
 - Patch DOMPurify in the countdown/controls examples, refresh compatible native transitives and document remaining dependency advisories.

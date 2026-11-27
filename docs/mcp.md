@@ -1,6 +1,6 @@
 # MCP setup and reference
 
-`@groovepost/mcp@0.7.5` provides local stdio and an adapter for authenticated hosted
+`@groovepost/mcp@0.7.7` provides local stdio and an adapter for authenticated hosted
 Streamable HTTP. Both expose supported REST operations with the caller’s permissions.
 Start with the [operation reference](operations.md) and [authentication guide](authentication.md).
 

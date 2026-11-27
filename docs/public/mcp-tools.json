@@ -5014,6 +5014,21 @@
     }
   },
   {
+    "name": "api_get_brand_reference",
+    "description": "Read the resolved brand reference for the configured tenant/environment before creating branded content. Includes SVG download URLs, color roles, typography specifications, optional voice and agent usage instructions. Read-only; unavailable when public brand access is disabled.",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  {
     "name": "data_get",
     "description": "get a scoped app entity through REST. Data is included on reads. Writes require the expected version and an operation ID for safe retries.",
     "inputSchema": {

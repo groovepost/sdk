@@ -1,6 +1,6 @@
 # CLI reference
 
-Install `@groovepost/cli@0.9.7` after [registry setup](getting-started.md).
+Install `@groovepost/cli@0.9.13` after [registry setup](getting-started.md).
 Run commands through a local script or `npx --no-install groovepost`.
 
 ## Configuration and first use
