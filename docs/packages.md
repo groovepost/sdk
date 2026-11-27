@@ -1,6 +1,6 @@
 # Packages and versions
 
-This inventory records the current platform package set. Examples pin these
+This inventory records the last verified platform package set in `versions.json`, not a live registry listing. Verify a required newer version before installing it. Examples pin these
 versions together and install through authenticated GitHub Packages access.
 Authenticated registry metadata and clean installations were verified on November 7, 2026.
 See `versions.json` for the reviewed package set.
